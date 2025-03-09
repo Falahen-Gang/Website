@@ -1,0 +1,513 @@
+/* Start variable */
+:root {
+    --main-color: #2196f3;
+    --main-color-alt: #1787e0;
+    --main-transition: 0.3s;
+    --main-padding-top: 100px;
+    --main-padding-bottom: 100px;
+    --section-background: #ececec;
+}
+
+/* End variable */
+
+/* Start global rules */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+}
+
+/* small */
+@media (min-width:768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* meduim */
+@media (min-width:992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* large */
+@media (min-width:1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* End global rules */
+
+/* Start header */
+.header {
+    background-color: #fff;
+    position: relative;
+    box-shadow: 0 0 10px #ddd;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.header .container .logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--main-color);
+    text-decoration: none;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .container .logo img {
+    height: 100%;
+    padding-bottom: 15px;
+}
+
+.header .container .logo p {
+    font-size: 15px;
+    color: #000;
+    padding-right: 10px;
+}
+
+
+.header .container .main-nav {
+    display: flex;
+}
+
+.header .container .main-nav>li>a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 52px;
+    font-size: 15px;
+    padding: 0 30px;
+    color: #000;
+    position: relative;
+    transition: var(--main-transition);
+    overflow: hidden;
+}
+
+.header .container .main-nav>li>a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    background-color: #2196f3;
+    height: 4px;
+    transition: var(--main-transition);
+}
+
+.header .container .main-nav>li>a:hover {
+    background-color: #fafafa;
+    color: var(--main-color);
+}
+
+.header .container .main-nav>li>a:hover::before {
+    left: 0;
+}
+
+/* End of header */
+
+/* Main Content Styling */
+main {
+    padding: 20px;
+}
+
+/* Contact Form Styling */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two columns: map and form */
+    gap: 20px;
+    /* Spacing between map and form */
+    width: 70%;
+    /* Adjust container width as needed */
+    margin: 50px auto;
+    /* Center the container */
+    position: relative;
+    /* For absolute positioning of isometric image */
+    border: 1px solid #e0e0e0;
+    /* Add a subtle border (optional) */
+    border-radius: 8px;
+    background-color: #F8F7F0
+        /* Add rounded corners (optional) */
+}
+
+.map-container {
+    border: 0;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    /* Make the iframe fill the container */
+    border: 0;
+}
+
+.contact-form {
+    /* Add padding if needed */
+    background-color: #fff;
+    margin: 5%;
+    padding: 10%;
+}
+
+.contact-form input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    color: #6C757D;
+    background-color: #F8F8F8;
+    border: 0;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: "manrope";
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: #04000B;
+}
+
+.contact-form h6 {
+    margin-bottom: 20px;
+    /* Adjust spacing below the heading */
+    font-size: 20px;
+    /* Adjust heading font size */
+    color: #4BAF47;
+    font-weight: bold;
+    /* Adjust heading color */
+}
+
+.contact-form img {
+    position: absolute;
+    top: 70%;
+    width: 300px;
+    height: auto;
+}
+
+/* Form Group and Input Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Button Styling */
+button[type="submit"] {
+    background-color: #EEC044;
+    /* Blue button color */
+    color: #04000B;
+    font-weight: bolder;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Contact Information Styling */
+.contact-info {
+    width: 70%;
+    /* Adjust as needed */
+    margin: 15px auto;
+    text-align: left;
+}
+
+.info-boxes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Responsive grid */
+    gap: 20px;
+}
+
+.info-box {
+    padding-inline: 10%;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.about-box {
+    background-color: #4BAF47;
+    /* Light blue */
+}
+
+.contact-box {
+    background-color: #D1C9C5;
+    /* Light green */
+}
+
+.address-box {
+    background-color: #EEC044;
+    /* Light orange */
+}
+
+
+.info-box h3 {
+    margin: 10px 0px;
+    font-size: 30px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.info-box p {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px;
+}
+
+
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        /* Stack columns vertically */
+    }
+
+    .map-container {
+        order: 2;
+        /* Map will appear second */
+        width: 95%;
+    }
+
+    .form-container {
+        order: 1;
+        /* Form will appear first */
+        width: 95%;
+    }
+
+    input,
+    textarea {
+        font-size: 14px;
+    }
+}
+
+/* Start Team Section */
+.team-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.team-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 40px 0px 10px 0px;
+}
+
+.team-description {
+    color: #555;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.team-grid-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.team-card {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(23.333% - 15px);
+    position: relative;
+}
+
+.col-1 {
+    margin: 0px 15px;
+}
+
+.team-card img {
+    width: 100%;
+    border-radius: 10px;
+    height: 220px;
+    object-fit: cover;
+}
+
+.team-name {
+    font-weight: bold;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: 0px;
+    right: -10px;
+    z-index: 2;
+}
+
+@media (max-width: 1024px) {
+    .team-card {
+        width: calc(50% - 15px);
+    }
+
+}
+
+@media (max-width: 768px) {
+    .team-card {
+        width: 40%;
+    }
+
+    .col-1 {
+        margin: 0;
+    }
+}
+
+/* End Team Section */
+
+/* Footer Styling */
+footer {
+    background-color: #12100E;
+    padding: 50px 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 50px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+    margin: 50px 0px;
+}
+
+.footer-logo {
+    text-align: left;
+}
+
+.footer-logo img {
+    width: 70px;
+}
+
+.footer-logo p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ccc;
+    max-width: 300px;
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: #fff;
+    margin-right: 10px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.footer-links h3,
+.contacts-info h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    border-bottom: 2px solid #4CAF50;
+    display: inline-block;
+    padding-bottom: 5px;
+    color: #fff;
+}
+
+.footer-column.contacts-info p {
+    color: #ccc;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin: 8px 0;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #4CAF50;
+}
+
+.contacts-info p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.bottom-bar {
+    text-align: center;
+    padding: 15px;
+    background-color: #1A1816;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.bottom-bar a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.bottom-bar a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-logo,
+    .footer-links,
+    .contacts-info {
+        margin-bottom: 30px;
+        width: 320px;
+    }
+}
