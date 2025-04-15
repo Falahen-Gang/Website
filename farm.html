@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farm Details - Agribot</title>
+    <link rel="stylesheet" href="Assets/CSS/farm/farm.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handjet:wght@700&family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+  </head>
+  <body>
+    <main>
+      <section class="farm-details">
+        <div class="farm-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3416.465970104768!2d30.949456!3d31.09677850000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f7ac7ba77647ed%3A0xcd75a051c77224b6!2sFaculty%20of%20Engineering%2C%20Kafrelsheikh%20University!5e0!3m2!1sen!2seg!4v1741398316302!5m2!1sen!2seg"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <div class="farm-info">
+          <h2>Farm Name</h2>
+          <p>Location <span id="farm-location"></span></p>
+          <p>Size <span id="farm-size"></span></p>
+          <p>Crops <span id="farm-crops"></span></p>
+        </div>
+      </section>
+      <div class="container">
+        <section class="tasks-section">
+          <div class="section-header">
+            <h2>My Farm Tasks</h2>
+            <button class="add-button">+</button>
+          </div>
+          <table class="tasks-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Service Type</th>
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="task-item">
+                <td>
+                  <img
+                    src="D:\download\Graduation Project Main Folder\agribot\Weed Detection and Removal  with robotics__.jpg"
+                    alt="Task 1"
+                  />
+                </td>
+                <td>Sustainable weed removal</td>
+                <td>15 Mar 2025</td>
+                <td>Pending</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="D:\download\Graduation Project Main Folder\agribot\Weed Detection and Removal  with robotics__.jpg"
+                    alt="Task 2"
+                  />
+                </td>
+                <td>Sustainable weed removal</td>
+                <td>16 Mar 2025</td>
+                <td>In progress</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src="D:\download\Graduation Project Main Folder\agribot\Weed Detection and Removal  with robotics__.jpg"
+                    alt="Task 3"
+                  />
+                </td>
+                <td>Sustainable weed removal</td>
+                <td>17 Mar 2025</td>
+                <td>Completed</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="task-details">
+          <h2>Current Task Details</h2>
+          <div class="npk-measurements">
+            <h3>NPK Measurements</h3>
+            <div class="gauge-charts">
+              <div class="gauge-chart">
+                <div class="gauge">
+                  <div class="gauge-value" style="width: 20%"></div>
+                </div>
+                <p>N (10 ppm)</p>
+              </div>
+              <div class="gauge-chart">
+                <div class="gauge">
+                  <div class="gauge-value" style="width: 40%"></div>
+                </div>
+                <p>P (20 ppm)</p>
+              </div>
+              <div class="gauge-chart">
+                <div class="gauge">
+                  <div class="gauge-value" style="width: 20%"></div>
+                </div>
+                <p>K (10 ppm)</p>
+              </div>
+              <div class="suggestions">
+                <h3>Suggestions</h3>
+                <p>May 3, 2025</p>
+              </div>
+            </div>
+            <div class="npk-chart">
+              <img src="npk-chart.png" alt="NPK Chart" />
+            </div>
+            <div id="map" style="height: 400px"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script>
+      // Sample Data for Kafr El-Shaikh
+      const dataPoints = [
+        { lat: 31.1167, lng: 30.9333, value: 50 },
+        { lat: 31.12, lng: 30.94, value: 75 },
+        { lat: 31.11, lng: 30.93, value: 25 },
+        { lat: 31.118, lng: 30.935, value: 60 },
+        { lat: 31.122, lng: 30.942, value: 90 },
+        { lat: 31.108, lng: 30.928, value: 30 },
+        { lat: 31.115, lng: 30.938, value: 70 },
+      ];
+
+      const map = L.map("map").setView([31.1167, 30.9333], 13); // Kafr El-Shaikh
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      const heatArray = dataPoints.map((point) => [
+        point.lat,
+        point.lng,
+        point.value,
+      ]);
+
+      const heat = L.heatLayer(heatArray, { radius: 25 }).addTo(map);
+    </script>
+  </body>
+</html>
