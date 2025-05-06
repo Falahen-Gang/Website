@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/Assets/CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Assets/CSS/all.min.css" />
+    <link rel="stylesheet" href="/Assets/CSS/main.css" />
+    <link rel="stylesheet" href="/Assets/CSS/Home/home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="input-container border border-primary border-3 rounded-4 shadow p-4 w-50
+        ">
+          <h2 class="text-center mb-4">New Task</h2>
+          
+          <div class="mb-3">
+            <label for="FarmName" class="form-label">Farm Name</label>
+            <input type="text" class="form-control" id="taskName" placeholder="Value">
+          </div>
+          
+          <div class="mb-3">
+            <label for="Crops" class="form-label">Crops</label>
+            <select class="form-select" id="Crops">
+              <option selected disabled>Choose...</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          
+          <div class="mb-3">
+            <label for="Notes" class="form-label">Notes</label>
+            <textarea class="form-control" aria-label="With textarea"></textarea>
+          </div>
+        </div>
+      </div>
+  </body>
+
+ <!-- Bootstrap JS and Popper.js (required for some Bootstrap components like tooltips) -->
+ <script src="/Assets/JS/bootstrap.bundle.min.js"></script>
+ <script src="/Assets/JS/all.min.js"></script>
+ <script src="/Assets/JS/main.js"></script>
+</body>
+</html>

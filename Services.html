@@ -3,202 +3,411 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Services</title>
-    <link rel="stylesheet" href="Assets/CSS/Services/Services.css" />
-    <link rel="stylesheet" href="Assets/CSS/media.css" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/Assets/CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Assets/CSS/all.min.css" />
+    <link rel="stylesheet" href="/Assets/CSS/main.css" />
+    <link rel="stylesheet" href="/Assets/CSS/Services/services.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <!-- Start header -->
-    <div class="header" id="header">
+    <div class="scroll"></div>
+    <!-- start nav -->
+    <nav class="navbar navbar-expand-lg bg-light sticky-top">
       <div class="container">
-        <a href="#" class="logo"
-          ><img src="Assets/IMG/Home/2.png" alt="" />
-          <p>AGRI<br />BOT</p></a
+        <img style="height: 50px" src="/Assets/IMG/Home/logo.png" alt="" />
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-        <ul class="main-nav">
-          <li><a href="Home.html">Home</a></li>
-          <li><a href="Services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="profile.html">Profile</a></li>
-          <li><a href="farm.html">Farm</a></li>
-          <li><a href="#login">Login</a></li>
-        </ul>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3"
+                aria-current="page"
+                href="Home.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3" href="Contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-lg-3 active" href="Services.html"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3" href="farm.html">Farm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3" href="login.html">Login</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <!-- End header -->
-    <!-- Start of serives background -->
-    <div class="banner">
-      <div class="overlay">
-        <nav class="breadcrumb">
-          <a href="Home.html">Home</a> / <span>Services</span>
-        </nav>
+    </nav>
+    <!-- end nav -->
+    <!-- start landing section -->
+    <div class="landing-section mb-3">
+      <div
+        class="d-flex flex-column mb-3 container text-center h-100 justify-content-center align-items-center"
+      >
+        <p>
+          <a class="fw-bold text-decoration-none text-dark" href="Home.html"
+            >Home</a
+          >
+          /
+          <a class="fw-bold text-decoration-none text-dark" href="Services.html"
+            >Services</a
+          >
+        </p>
         <h1>Services</h1>
       </div>
     </div>
-    <!-- End of serives background -->
-
-    <!-- Start of our services -->
-
-    <div class="shop-container">
-      <div class="shop-header">
-        <h2>Shop Agribot Services and solutions</h2>
-        <p class="shop-sub-header">About 9,620 results (0.62 seconds)</p>
-      </div>
-      <div class="shop-controls">
-        <div class="control-item">
-          <label for="per-page">Per Page:</label>
-          <input id="per-page" type="number" min="1" max="100" />
+    <!-- end landing section -->
+    <!-- Start Shop section -->
+    <div class="container mt-4">
+      <!-- Search / Filter / View Controls -->
+      <div class="row g-3 mb-4">
+        <div class="col-md-3">
+          <span class="mb-1">Agrirobot Shop Services</span><br />
+          <small class="text-muted">About 32 results</small>
         </div>
-        <div class="control-item">
-          <label for="sort-by">Sort By:</label>
-          <select id="sort-by">
-            <option>Best Match</option>
-            <option>Price: Low to High</option>
-            <option>Price: High to Low</option>
-            <option>Newest</option>
+
+        <div class="col-md-3 d-flex align-items-center">
+          <label for="inputField" class="form-label me-2 mb-0">Search:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputField"
+            placeholder="Search products..."
+          />
+        </div>
+
+        <div class="col-md-3 d-flex align-items-center">
+          <label for="selectField" class="form-label me-2 mb-0"
+            >Category:</label
+          >
+          <select class="form-select" id="selectField">
+            <option selected disabled>--Choose--</option>
+            <option>Option1</option>
+            <option>Option2</option>
+            <option>Option3</option>
           </select>
         </div>
-        <div class="shop-view-icons">
-          <label>View:</label>
-          <button class="active">&#9638;</button>
-          <button>&#9639;</button>
-          <input type="number" min="1" max="100" />
+
+        <div class="col-md-3 d-flex align-items-center justify-content-between">
+          <label class="form-label me-2 mb-0"
+            >View:
+            <i class="fa-solid fa-table-cells-large"></i>
+            <i class="fa-solid fa-grip-vertical"></i>
+          </label>
         </div>
       </div>
     </div>
-    <div class="cards-container">
-      <div class="card">
-        <img
-          src="Assets/IMG/Services/image-03.webp.png"
-          alt="Weed Removal Machine"
-          class="card-img"
-        />
-        <div class="card-content">
-          <h2 class="card-title">
-            <a href="Services_details.html">Sustainable weed removal</a>
-          </h2>
-          <div class="card-pricing">
-            <span class="price">$26</span>
-            <span class="old-price">$52</span>
-            <span class="rating">★★★★☆</span>
+    <!-- End Shop section -->
+    <!-- Start product section -->
+    <div class="container mt-4">
+      <!-- Product Card 1 -->
+      <div class="card mb-3" style="border: none">
+        <div class="row gx-3">
+          <!-- changed from g-0 to gx-3 for equal column gaps -->
+          <!-- First Column: Image -->
+          <div
+            class="col-md-3 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="/Assets/IMG/Services/service-05.webp.png"
+              class="img-fluid rounded-5"
+              alt="Product Image"
+            />
           </div>
-          <p class="card-description">
-            Eco-friendly weed control using natural methods to protect soil and
-            biodiversity
-          </p>
-          <div class="card-actions">
-            <button class="icon-btn">🛒</button>
-            <button class="icon-btn">❤️</button>
-            <button class="icon-btn">🔍</button>
+
+          <!-- Second Column: Details -->
+          <div class="col-md-6 d-flex">
+            <div
+              class="card-body d-flex flex-column justify-content-between h-100"
+            >
+              <h5 class="card-title text-center w-50">
+                Sustainable weed removal
+              </h5>
+              <h6 class="text-success ps-2">$49.99</h6>
+              <p class="card-text text-muted w-75 ps-2">
+                This is a brief description of the product, highlighting key
+                features or benefits.
+              </p>
+              <div class="ps-2">
+                <button
+                  class="btn btn-outline-danger btn-sm me-2"
+                  title="Add to Wishlist"
+                >
+                  <i class="fa-solid fa-heart"></i>
+                </button>
+                <button
+                  class="btn btn-outline-primary btn-sm me-2"
+                  title="Add to Cart"
+                >
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+                <button
+                  class="btn btn-outline-secondary btn-sm"
+                  title="View Details"
+                >
+                  <a href="Services_Details.html"
+                    ><i class="fa-solid fa-circle-plus"></i
+                  ></a>
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card-bullets">
-          <span class="bullet"></span>
-          <span class="bullet"></span>
-          <span class="bullet"></span>
+
+          <!-- Third Column: Bullet Points (hidden on small screens) -->
+          <div class="col-md-3 d-none d-md-flex">
+            <ul class="d-flex gap-3 mb-0 ps-0">
+              <li class="bi bi-dot text-danger fs-1"></li>
+              <li class="bi bi-dot text-success fs-1"></li>
+              <li class="bi bi-dot text-primary fs-1"></li>
+            </ul>
+          </div>
         </div>
       </div>
+      <!-- Product Card 2 -->
+      <div class="card mb-3" style="border: none">
+        <div class="row gx-3">
+          <!-- changed from g-0 to gx-3 for equal column gaps -->
+          <!-- First Column: Image -->
+          <div
+            class="col-md-3 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="/Assets/IMG/Services/service-07.png"
+              class="img-fluid rounded-5"
+              alt="Product Image"
+            />
+          </div>
 
-      <div class="card">
-        <img
-          src="Assets/IMG/Services/service-06.webp.png"
-          alt="Weed Removal Machine"
-          class="card-img"
-        />
-        <div class="card-content">
-          <h2 class="card-title">
-            <a href="">Soil analysis and nutrient mapping</a>
-          </h2>
-          <div class="card-pricing">
-            <span class="price">$26</span>
-            <span class="old-price">$52</span>
-            <span class="rating">★★★★☆</span>
+          <!-- Second Column: Details -->
+          <div class="col-md-6 d-flex">
+            <div
+              class="card-body d-flex flex-column justify-content-between h-100"
+            >
+              <h5 class="card-title text-center w-50">
+                Soil analysis and nutrient mapping
+              </h5>
+              <h6 class="text-success ps-2">$49.99</h6>
+              <p class="card-text text-muted w-75 ps-2">
+                This is a brief description of the product, highlighting key
+                features or benefits.
+              </p>
+              <div class="ps-2">
+                <button
+                  class="btn btn-outline-danger btn-sm me-2"
+                  title="Add to Wishlist"
+                >
+                  <i class="fa-solid fa-heart"></i>
+                </button>
+                <button
+                  class="btn btn-outline-primary btn-sm me-2"
+                  title="Add to Cart"
+                >
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+                <button
+                  class="btn btn-outline-secondary btn-sm"
+                  title="View Details"
+                >
+                  <i class="fa-solid fa-circle-plus"></i>
+                </button>
+              </div>
+            </div>
           </div>
-          <p class="card-description">
-            Assessing soil health and mapping nutrients for optimal plant
-            growth.
-          </p>
-          <div class="card-actions">
-            <button class="icon-btn">🛒</button>
-            <button class="icon-btn">❤️</button>
-            <button class="icon-btn">🔍</button>
+
+          <!-- Third Column: Bullet Points (hidden on small screens) -->
+          <div class="col-md-3 d-none d-md-flex">
+            <ul class="d-flex gap-3 mb-0 ps-0">
+              <li class="bi bi-dot text-danger fs-1"></li>
+              <li class="bi bi-dot text-success fs-1"></li>
+              <li class="bi bi-dot text-primary fs-1"></li>
+            </ul>
           </div>
-        </div>
-        <div class="card-bullets">
-          <span class="bullet"></span>
-          <span class="bullet"></span>
-          <span class="bullet"></span>
         </div>
       </div>
+      <!-- Product Card 3 -->
+      <div class="card mb-3" style="border: none">
+        <div class="row gx-3">
+          <!-- changed from g-0 to gx-3 for equal column gaps -->
+          <!-- First Column: Image -->
+          <div
+            class="col-md-3 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="/Assets/IMG/Services/service-06.webp.png"
+              class="img-fluid rounded-5"
+              alt="Product Image"
+            />
+          </div>
 
-      <div class="card">
-        <img
-          src="Assets/IMG/Services/service-07.png"
-          alt="Weed Removal Machine"
-          class="card-img"
-        />
-        <div class="card-content">
-          <h2 class="card-title"><a href="">Crop Health Monitoring</a></h2>
-          <div class="card-pricing">
-            <span class="price">$26</span>
-            <span class="old-price">$52</span>
-            <span class="rating">★★★★☆</span>
+          <!-- Second Column: Details -->
+          <div class="col-md-6 d-flex">
+            <div
+              class="card-body d-flex flex-column justify-content-between h-100"
+            >
+              <h5 class="card-title text-center w-50">
+                Crop Health Monitoring
+              </h5>
+              <h6 class="text-success ps-2">$49.99</h6>
+              <p class="card-text text-muted w-75 ps-2">
+                This is a brief description of the product, highlighting key
+                features or benefits.
+              </p>
+              <div class="ps-2">
+                <button
+                  class="btn btn-outline-danger btn-sm me-2"
+                  title="Add to Wishlist"
+                >
+                  <i class="fa-solid fa-heart"></i>
+                </button>
+                <button
+                  class="btn btn-outline-primary btn-sm me-2"
+                  title="Add to Cart"
+                >
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+                <button
+                  class="btn btn-outline-secondary btn-sm"
+                  title="View Details"
+                >
+                  <i class="fa-solid fa-circle-plus"></i>
+                </button>
+              </div>
+            </div>
           </div>
-          <p class="card-description">
-            Tracking crop conditions to ensure optimal growth and early issue
-            detection.
-          </p>
-          <div class="card-actions">
-            <button class="icon-btn">🛒</button>
-            <button class="icon-btn">❤️</button>
-            <button class="icon-btn">🔍</button>
+
+          <!-- Third Column: Bullet Points (hidden on small screens) -->
+          <div class="col-md-3 d-none d-md-flex">
+            <ul class="d-flex gap-3 mb-0 ps-0">
+              <li class="bi bi-dot text-danger fs-1"></li>
+              <li class="bi bi-dot text-success fs-1"></li>
+              <li class="bi bi-dot text-primary fs-1"></li>
+            </ul>
           </div>
-        </div>
-        <div class="card-bullets">
-          <span class="bullet"></span>
-          <span class="bullet"></span>
-          <span class="bullet"></span>
         </div>
       </div>
     </div>
-    <!-- End of our serivces -->
-    <!-- Start Footer section -->
-    <footer>
-      <div class="footer-column footer-logo">
-        <img src="Assets/IMG/Home/2.png" alt="AGRIBOT Logo" />
-        <p>
-          Innovative robotic and AI-powered solutions that address the critical
-          challenges facing modern agriculture.
-        </p>
-        <div class="social-icons">
-          <a href="#">&#xf09a;</a>
-          <a href="#">&#xf09b;</a>
-          <a href="#">&#xf16d;</a>
+
+    <!-- End product section -->
+    <!-- start footer -->
+    <div class="footer pb-5 pt-5 text-white-50 text-center text-md-start">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="info mb-5">
+              <img
+                style="height: 70px"
+                src="/Assets/IMG/Home/logo.png"
+                alt=""
+              />
+              <p class="mb-5">
+                Innovative robotic and AI-powered solutions that address the
+                critical challenges facing modern agriculture.
+              </p>
+              <div class="copyright">
+                Created By <span>Graphberry</span>
+                <div>&copy; 2024 - <span>AGRI ROBO</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <div class="links">
+              <h5 class="text-light">Explore</h5>
+              <ul class="list-unstyled lh-lg">
+                <li>about</li>
+                <li>Our Services</li>
+                <li>Profile</li>
+                <li>farm</li>
+                <li>Our Project</li>
+                <li>contact</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <div class="links">
+              <h5 class="text-light">About Us</h5>
+              <ul class="list-unstyled lh-lg">
+                <li>Sign in</li>
+                <li>Register</li>
+                <li>About Us</li>
+                <li>Blog</li>
+                <li>Contact us</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="contact">
+              <h5 class="text-light mb-3">Contact Us</h5>
+              <p class="mb-5 fs-6 lh-lg fw-bold">
+                Get in touch with us via mail phone.We are waiting for your call
+                or message
+              </p>
+              <a class="Email btn rounded-pill w-100 main-btn" href=""
+                >AGIROBO@gmail.com</a
+              >
+              <ul class="social-media d-flex mt-5 list-unstyled gap-3">
+                <li>
+                  <a class="d-block text-light" href="">
+                    <i
+                      class="fa-brands fa-facebook facebook rounded-circle p-2"
+                    ></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="d-block text-light" href="">
+                    <i
+                      class="fa-brands fa-twitter twitter rounded-circle p-2"
+                    ></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="d-block text-light" href="">
+                    <i
+                      class="fa-brands fa-youtube youtube rounded-circle p-2"
+                    ></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="d-block text-light" href="">
+                    <i
+                      class="fa-brands fa-linkedin linkedin rounded-circle p-2"
+                    ></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="footer-column footer-links">
-        <h3>Explore</h3>
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Our Projects</a></li>
-          <li><a href="#">Meet the Team</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column contact-info">
-        <h3>Contact</h3>
-        <p>&#x260E; 666 888 0000</p>
-        <p>&#x2709; needhelp@company.com</p>
-        <p>&#x1F4CD; 80 Brooklyn Golden Street Line, New York, USA</p>
-      </div>
-    </footer>
-    <div class="bottom-bar">
-      &copy; All Copyright 2025 by AGRIBOT | <a href="#">Terms of Use</a> |
-      <a href="#">Privacy Policy</a>
     </div>
-    <!-- End footer section -->
+    <!-- end footer -->
+    <!-- Bootstrap JS and Popper.js (required for some Bootstrap components like tooltips) -->
+    <script src="/Assets/JS/bootstrap.bundle.min.js"></script>
+    <script src="/Assets/JS/all.min.js"></script>
+    <script src="/Assets/JS/main.js"></script>
   </body>
 </html>

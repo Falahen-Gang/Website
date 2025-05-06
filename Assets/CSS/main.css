@@ -1,0 +1,81 @@
+body {
+    font-family: "roboto", sans-serif;
+}
+
+.scroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 0;
+    background-color: #4BAF47;
+    z-index: 9999;
+}
+
+.up {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: -60px;
+    background-color: #4BAF47;
+    color: #fff;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+span:hover {
+    cursor: pointer;
+    background-color: #85d382;
+}
+
+/* start nav  */
+
+.navbar {
+    padding: 0rem !important;
+}
+
+/* end nav  */
+
+/* Start team section */
+.team {
+    font-weight: bold;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    z-index: 2;
+    width: 200px;
+}
+
+/* End team section */
+/* start footer */
+.footer {
+    background-color: #1F1E17;
+}
+
+.Email {
+    background-color: #0d6efd;
+    color: #eee;
+}
+
+.Email:hover {
+    color: #0d6efd;
+    background-color: #eee;
+}
+
+.social-media li a:hover {
+    background-color: #0d6efd;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+/* end footer */
