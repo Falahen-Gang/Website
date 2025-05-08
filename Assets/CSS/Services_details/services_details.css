@@ -142,7 +142,7 @@ a {
 /* *******Start of serives background******* */
 /* Banner section */
 .banner {
-    background: url('/Assets/IMG/Services/Soil\ Analysis\ and\ Mapping\ \ with\ robotics__.jpg') top right/cover no-repeat;
+    background: url('../../IMG/Services/Soil\ Analysis\ and\ Mapping\ \ with\ robotics__.jpg') top right/cover no-repeat;
     height: 200px;
     position: relative;
     display: flex;
