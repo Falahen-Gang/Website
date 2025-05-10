@@ -1,0 +1,46 @@
+const form = document.getElementById('signup');
+
+form.addEventListener("submit",
+    function (e){
+        e.preventDefault();
+        const api_url = "http://192.168.1.9:8000/api/auth/register";
+        const responseMessage = document.getElementById("response-message");
+        const formData = new FormData(form);
+        const jsonData = Object.fromEntries(formData.entries());
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify(jsonData),
+        };
+
+        
+  fetch(api_url, requestOptions)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      responseMessage.style.display = "block";
+      console.log(data.status);
+      if(data.status==true)
+      {
+        responseMessage.textContent = "sign up successfully";
+        responseMessage.classList.add('alert', 'alert-success');
+        form.reset();
+      }
+      if(data.status==false)
+      {
+        responseMessage.textContent = "error occured";
+        responseMessage.classList.add('alert', 'alert-danger');
+
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+
+    }
+
+)

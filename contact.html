@@ -146,6 +146,9 @@
     <!-- Start Contact Section -->
     <div class="container my-5">
       <div class="row" style="background-color: #f8f7f0">
+        <div id="response-message" class="alert " role="alert" style="display: none;">
+          
+        </div>
         <!-- Map Column (50%) -->
         <div class="col-md-6 col-sm-8 mb-4 mb-md-0 my-3 pt-3">
           <iframe
@@ -160,50 +163,41 @@
         </div>
 
         <div class="col-md-5 my-3 p-3" style="background-color: white">
-          <form class="row g-3">
+          <form class="row g-3" id="contact-form">
             <span class="fs-4" style="color: #4baf47">Have Questions?</span>
             <h1>Send us a message</h1>
             <div class="col-9">
               <label for="inputAddress" class="form-label">Name</label>
-              <input
+              <input required
                 type="text"
                 class="form-control"
-                id="InputName"
+                id="name"
+                name="name"
                 placeholder="Name"
               />
             </div>
             <div class="col-md-5">
               <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmail4" />
+              <input  name= 'email' required type="email" class="form-control" id="email" />
             </div>
             <div class="col-md-4">
-              <label for="inputPassword4" class="form-label">Password</label>
-              <input type="password" class="form-control" id="inputPassword4" />
+              <label for="inputPassword4" class="form-label">Phone</label>
+              <input  type="tel" id="phone" name="phone" maxlength="15" required oninput="this.value = this.value.replace(/(?!^\+)[^\d]/g, '')" class="form-control" id="inputPassword4" />
             </div>
-            <div class="col-9">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="gridCheck"
-                />
-                <label class="form-check-label" for="gridCheck">
-                  Check me out
-                </label>
-              </div>
-            </div>
+            
             <div class="form-floating col-9">
-              <textarea
+              <textarea required
                 class="form-control"
                 placeholder="Leave a comment here"
-                id="floatingTextarea2"
+                id="message"
+                name= "message"
                 style="height: 100px"
               ></textarea>
               <label for="floatingTextarea2">Comments</label>
             </div>
             <div class="col-12">
               <button type="submit" class="btn btn-warning p-3">
-                Get in touch
+                Send
               </button>
             </div>
           </form>
@@ -462,5 +456,6 @@
     <script src="./Assets/JS/bootstrap.bundle.min.js"></script>
     <script src="./Assets/JS/all.min.js"></script>
     <script src="./Assets/JS/main.js"></script>
+    <script src="./Assets/JS/contactapi.js"></script>
   </body>
 </html>

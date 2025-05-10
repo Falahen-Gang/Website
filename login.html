@@ -7,14 +7,19 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+    <link rel="stylesheet" href="./Assets/CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="./Assets/CSS/all.min.css" />
+    <link rel="stylesheet" href="./Assets/CSS/main.css" />
     <link rel="stylesheet" href="./Assets/CSS/login/style.css" />
     <title>Page</title>
   </head>
 
   <body>
+    <div class=" w-50 mx-auto"  id="response-message"  role="alert">
+    </div>
     <div class="container" id="container">
       <div class="form-container sign-up">
-        <form>
+        <form id="signup">
           <h1>Create Account</h1>
           <div class="social-icons">
             <a href="#" class="icon"
@@ -27,14 +32,14 @@
             ></a>
           </div>
           <span>or use your email for registeration</span>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <button>Sign Up</button>
+          <input name="name" type="text" placeholder="Name" />
+          <input type="email" name="email" placeholder="Email" />
+          <input type="password" name="password" placeholder="Password" />
+          <button type="submit">Sign Up</button>
         </form>
       </div>
       <div class="form-container sign-in">
-        <form>
+        <form id="signin">
           <h1>Sign In</h1>
           <div class="social-icons">
             <a href="#" class="icon"
@@ -47,10 +52,10 @@
             ></a>
           </div>
           <span>or use your email password</span>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <input name="email_sign" id="email_sign" type="email" placeholder="Email" />
+          <input name="password_sign" id="password_sign" type="password" placeholder="Password" />
           <a href="#">Forget Your Password?</a>
-          <button>Sign In</button>
+          <button type="submit">Sign In</button>
         </form>
       </div>
       <div class="toggle-container">
@@ -72,5 +77,9 @@
     </div>
 
     <script src="./Assets/JS/login/script.js"></script>
+    <script src="./Assets/JS/signup.js"></script>
+    <script src="./Assets/JS/signin.js"></script>
+
+
   </body>
 </html>
