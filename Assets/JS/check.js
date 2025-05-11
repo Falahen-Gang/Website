@@ -18,14 +18,7 @@ fetch(api_check, requestOptions)
     if(data.status == true )
     {
         console.log("user logged in");
-    }else{
-        console.log("user logged out");
-    }
-
-})
-
-
-const token = localStorage['token'];
+        const token = localStorage['token'];
 const payload = parseJwt(token);
   const exp = payload.exp;
   const now = Math.floor(Date.now() / 1000);
@@ -63,4 +56,12 @@ function parseJwt(token) {
     return null;
   }
 }
+    }else{
+        console.log("user logged out");
+    }
+
+})
+
+
+
 }
