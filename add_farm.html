@@ -17,31 +17,47 @@
   </head>
 
   <body>
-    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
-        <div class="input-container border border-primary border-3 rounded-4 shadow p-4 w-50
+    <div class="container py-5 justify-content-center align-items-center" style="height: 100vh;">
+      <div class="alert " role="alert" id="response">
+      </div>
+      <form id="add_farm_form" class="row g-3 w-100">
+        <div class="input-container border border-primary border-3 rounded-4 shadow p-4 
         ">
-          <h2 class="text-center mb-4">New Task</h2>
+          <h2 class="text-center mb-4">New Farm</h2>
           
           <div class="mb-3">
             <label for="FarmName" class="form-label">Farm Name</label>
-            <input type="text" class="form-control" id="taskName" placeholder="Value">
+            <input name="name" type="text" class="form-control" id="taskName" placeholder="Value">
           </div>
-          
           <div class="mb-3">
-            <label for="Crops" class="form-label">Crops</label>
-            <select class="form-select" id="Crops">
-              <option selected disabled>Choose...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <label for="FarmName" class="form-label">Location</label>
+            <input name="location" type="text" class="form-control"  placeholder="Value">
+          </div>
+          <div class="mb-3">
+            <label for="FarmName" class="form-label">Area</label>
+            <input name="area" type="number" class="form-control"  placeholder="Value">
+          </div>
+          <div class="mb-3">
+            <label for="FarmName" class="form-label">line length</label>
+            <input name="line_length" type="number" class="form-control"  placeholder="Value">
+          </div>
+          <div class="mb-3">
+            <label for="FarmName" class="form-label">number of lines</label>
+            <input name="number_of_lines" type="number" class="form-control"  placeholder="Value">
+          </div>
+          <div class="mb-3">
+            <label for="Crops" class="form-label">Crop</label>
+            <select name="crop_id" class="form-select" id="Crops">
+              <option value="1">Tomatoes</option>
             </select>
           </div>
-          
           <div class="mb-3">
             <label for="Notes" class="form-label">Notes</label>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
+            <textarea name="notes" class="form-control" aria-label="With textarea"></textarea>
           </div>
         </div>
+        <button type="submit" class="btn btn-primary p-3">add</button>
+        </form>
       </div>
   </body>
 
@@ -49,5 +65,9 @@
  <script src="./Assets/JS/bootstrap.bundle.min.js"></script>
  <script src="./Assets/JS/all.min.js"></script>
  <script src="./Assets/JS/main.js"></script>
+  <script src="./Assets/JS/check.js"></script>
+  <script src="./Assets/JS/add_farm.js"></script>
+
+
 </body>
 </html>

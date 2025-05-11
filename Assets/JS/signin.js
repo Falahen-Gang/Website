@@ -31,6 +31,8 @@ form_sign.addEventListener("submit",
         responseMessage.textContent = "login successfully";
         responseMessage.classList.add('alert', 'alert-success');
         form_sign.reset();
+        localStorage.setItem("token",data.access_token);
+        // console.log(localStorage['token']);
       }
       if(data.status==false)
       {
