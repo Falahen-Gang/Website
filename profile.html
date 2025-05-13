@@ -50,14 +50,25 @@
               <a class="nav-link p-2 p-lg-3" href="Services.html">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-lg-3 active" href="profile.html">Profile</a>
+              <a class="nav-link p-2 p-lg-3 login" href="profile.html">Profile</a>
+            </li>
+            <li  class="nav-item">
+              <a  class="nav-link p-2 p-lg-3 login" href="farm.html" >Farm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3" href="farm.html">Farm</a>
+                <a class="nav-link p-2 p-lg-3 logout" href="login.html">login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3" href="login.html">Login</a>
+                <a class="nav-link p-2 p-lg-3 login" href="logout.html">logout</a>
             </li>
+              <li class="nav-item">
+                <a  class="nav-link p-2 p-lg-3" style="cursor: pointer; background-color: red;"  onclick="setlanguage('ar')">عربي</a>
+                
+
+              </li>
+              <li class="nav-item">
+                <a  class="nav-link p-2 p-lg-3" style="cursor: pointer; background-color: blue;" onclick="setlanguage('en')">english</a>
+              </li>
           </ul>
         </div>
       </div>
@@ -71,37 +82,7 @@
           <button id="add-farm" class="add-button">+</button>
         </div>
         <ul class="farms-list"  id="map-container">
-          
-          <li class="farm-item">
-            <div class="farm-map">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3416.465970104768!2d30.949456!3d31.09677850000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f7ac7ba77647ed%3A0xcd75a051c77224b6!2sFaculty%20of%20Engineering%2C%20Kafrelsheikh%20University!5e0!3m2!1sen!2seg!4v1741398316302!5m2!1sen!2seg"
-                style="border: 0"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-            <div class="farm-details">
-              <p><strong>Sakha / Kafr El-Sheikh</strong></p>
-              <p>Potato</p>
-            </div>
-          </li>
-           <li class="farm-item">
-            <div class="farm-map">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3416.465970104768!2d30.949456!3d31.09677850000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f7ac7ba77647ed%3A0xcd75a051c77224b6!2sFaculty%20of%20Engineering%2C%20Kafrelsheikh%20University!5e0!3m2!1sen!2seg!4v1741398316302!5m2!1sen!2seg"
-                style="border: 0"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-            <div class="farm-details">
-              <p><strong>Sakha / Kafr El-Sheikh</strong></p>
-              <p>Potato</p>
-            </div>
-          </li>
+
         </ul>
       </section>
 
@@ -121,15 +102,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="task-item">
-              <td>
-                <img src="./Assets/IMG/profile/image-03.webp.png" alt="Task 1" />
-              </td>
-              <td>Sustainable weed removal</td>
-              <td>Farm Name</td>
-              <td>15 Mar 2025</td>
-              <td>Pending</td>
-            </tr>
+            
           </tbody>
         </table>
       </section>

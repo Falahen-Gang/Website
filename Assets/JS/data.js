@@ -1,11 +1,13 @@
-    const translations = {
-  en: {
-    WELCOME_TO_AGRIROBOT : "WELCOME TO AGRIROBOT"
-  },
-  ar: {
-    WELCOME_TO_AGRIROBOT : "WELCOME TO AGRIROBOT arabic"
-  }
+  const translations = {
+    en: {
+      WELCOME_TO_AGRIROBOT : "WELCOME TO AGRIROBOT"
+    },
+    ar: {
+      WELCOME_TO_AGRIROBOT : "WELCOME TO AGRIROBOT arabic"
+    }
 };
+
+
   const base_url = `http://192.168.1.9:8000/api/` ;
 
   let language = localStorage.getItem('language');
@@ -33,4 +35,11 @@ function apply_language(language)
     const key = el.getAttribute('data-key');
     el.textContent = translations[language][key];
   });
+  const body= document.querySelector('body');
+  if(language=='ar' && !location.pathname.endsWith('login.html'))
+  {
+    body.style.direction="rtl";
+  }else{
+    body.style.direction="ltr";
+  }
 }

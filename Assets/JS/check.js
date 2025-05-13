@@ -1,5 +1,17 @@
 
 
+const not_allow_for_login = ['login.html'];
+const allow_for_logout = 
+[
+  'home.html',
+  'contact.html','services.html', 
+  'Services_details2.html', 
+  "Services_details.html",
+  'Services_details3.html',
+  'login.html',
+];
+const currentPage = window.location.pathname.split('/').pop();
+
 if (!localStorage.getItem('token')) 
 {
     console.log("you need to sign in first");
@@ -48,6 +60,7 @@ fetch(api_check, requestOptions)
       }
       else{
           console.log("user logged out");
+          localStorage.removeItem('token');
           logged_out();
       }
 })
@@ -75,6 +88,10 @@ function logged_out() {
     document.querySelectorAll('.logout').forEach(el => {
     el.classList.remove('hidden');
   });
+
+  // if (!allow_for_logout.includes(currentPage)) {
+  //     location.assign('home.html');
+  // }
 }
 function logged_in() {
       document.querySelectorAll('.login').forEach(el => {
@@ -83,5 +100,8 @@ function logged_in() {
     document.querySelectorAll('.logout').forEach(el => {
     el.classList.add('hidden');
   });
-  
+  // if (not_allow_for_login.includes(currentPage)) {
+  //   location.assign('home.html');
+  // }
+
 }

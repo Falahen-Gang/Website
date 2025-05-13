@@ -50,14 +50,25 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3" href="profile.html">Profile</a>
+              <a class="nav-link p-2 p-lg-3 login" href="profile.html">Profile</a>
+            </li>
+            <li  class="nav-item">
+              <a  class="nav-link p-2 p-lg-3 login" href="farm.html" >Farm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3" href="farm.html">Farm</a>
+                <a class="nav-link p-2 p-lg-3 logout" href="login.html">login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3" href="login.html">Login</a>
+                <a class="nav-link p-2 p-lg-3 login" href="logout.html">logout</a>
             </li>
+              <li class="nav-item">
+                <a  class="nav-link p-2 p-lg-3" style="cursor: pointer; background-color: red;"  onclick="setlanguage('ar')">عربي</a>
+                
+
+              </li>
+              <li class="nav-item">
+                <a  class="nav-link p-2 p-lg-3" style="cursor: pointer; background-color: blue;" onclick="setlanguage('en')">english</a>
+              </li>
           </ul>
         </div>
       </div>
@@ -114,6 +125,7 @@
                     <button
                       class="btn btn btn-success btn-sm me-2"
                       title="Add "
+                      onclick="location.assign('add_task.html')"
                     >
                       Add to cart
                     </button>

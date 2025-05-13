@@ -70,13 +70,20 @@ fetch(api_get_dates, requestOptions_getDates)
   .then(respone =>respone.json())
   .then(data =>
     {
-    const datesSelect = document.getElementById('farms');
-    data.data.forEach(item => {
-      const option = document.createElement('option');
-      option.value = item.id;        
-      option.textContent = `${item.name} - ${item.location}` ; 
-      datesSelect.appendChild(option);
-    });
+        const datesSelect = document.getElementById('farms');
+      if(data.data.length != 0)
+      {
+        data.data.forEach(item => {
+          const option = document.createElement('option');
+          option.value = item.id;        
+          option.textContent = `${item.name} - ${item.location}` ; 
+          datesSelect.appendChild(option);
+        });
+      }else{
+        const add = document.getElementById('add');
+        add.innerHTML = "you need to add farm first";
+        add.disabled=true;
+      }
   })
   .catch(error => {
     console.error('Error fetching dates:', error);

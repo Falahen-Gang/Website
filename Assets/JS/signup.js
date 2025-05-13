@@ -28,7 +28,10 @@ form.addEventListener("submit",
       {
         responseMessage.textContent = "sign up successfully";
         responseMessage.classList.add('alert', 'alert-success');
+        // console.log(data);
         form.reset();
+        localStorage.setItem('token', data.access_token)
+        location.assign('home.html');
       }
       if(data.status==false)
       {

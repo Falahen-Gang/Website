@@ -32,6 +32,7 @@ form_sign.addEventListener("submit",
         responseMessage.classList.add('alert', 'alert-success');
         form_sign.reset();
         localStorage.setItem("token",data.access_token);
+        location.assign('home.html');
         // console.log(localStorage['token']);
       }
       if(data.status==false)
