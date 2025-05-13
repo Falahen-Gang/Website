@@ -1,5 +1,5 @@
 const add_task_form = document.getElementById('add_task_form');
-const api_add_task = 'http://192.168.1.9:8000/api/addTask';
+const api_add_task = `${base_url}addTask`;
 const response_addtask = document.getElementById('response');
 add_task_form.addEventListener('submit',
     function(event){
@@ -37,7 +37,7 @@ add_task_form.addEventListener('submit',
     });
 });
 
-const api_get_dates = 'http://192.168.1.9:8000/api/getDates';
+const api_get_dates = `${base_url}getDates`;
 const requestOptions_getDates={
     method: 'GET',
     headers:{
@@ -59,7 +59,7 @@ fetch(api_get_dates, requestOptions_getDates)
     console.error('Error fetching dates:', error);
   });
 
-  const api_getFarms = 'http://192.168.1.9:8000/api/getFarms';
+  const api_getFarms = `${base_url}getFarms`;
   const options_getfarms = {
     method : 'GET',
     headers : {

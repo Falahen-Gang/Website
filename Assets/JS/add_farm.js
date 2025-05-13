@@ -1,5 +1,5 @@
 const add_farm_form = document.getElementById('add_farm_form');
-const api_add_farm = 'http://192.168.1.9:8000/api/addFarm';
+const api_add_farm = `${base_url}addFarm`;
 const response_addfarm = document.getElementById('response');
 add_farm_form.addEventListener('submit',
     function(event){

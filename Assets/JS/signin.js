@@ -3,7 +3,7 @@ const form_sign = document.getElementById('signin');
 form_sign.addEventListener("submit",
     function (e){
         e.preventDefault();
-        const api_url = "http://192.168.1.9:8000/api/auth/login";
+        const api_url = `${base_url}auth/login`;
         const responseMessage = document.getElementById("response-message");
         const formData ={
             email : document.getElementById("email_sign").value,

@@ -1,7 +1,9 @@
 body {
     font-family: "roboto", sans-serif;
 }
-
+.hidden {
+  display: none !important;
+}
 .scroll {
     position: fixed;
     top: 0;

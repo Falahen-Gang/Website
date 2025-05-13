@@ -3,7 +3,7 @@ const form = document.getElementById('signup');
 form.addEventListener("submit",
     function (e){
         e.preventDefault();
-        const api_url = "http://192.168.1.9:8000/api/auth/register";
+        const api_url = `${base_url}auth/register`;
         const responseMessage = document.getElementById("response-message");
         const formData = new FormData(form);
         const jsonData = Object.fromEntries(formData.entries());

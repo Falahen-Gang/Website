@@ -1,4 +1,4 @@
-const apiUrl = 'http://192.168.1.9:8000/api/sendmessage';
+const apiUrl = `${base_url}sendmessage`;
 
 const contactForm = document.getElementById('contact-form');
 const responseMessage = document.getElementById('response-message');

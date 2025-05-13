@@ -1,4 +1,4 @@
-const api_profile = 'http://192.168.1.9:8000/api/user-profile';
+const api_profile = `${base_url}user-profile`;
 const options_profile = {
     method : 'GET',
     headers : {
