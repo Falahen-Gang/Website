@@ -50,25 +50,50 @@
               <a class="nav-link p-2 p-lg-3" href="Services.html">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 login" href="profile.html">Profile</a>
-            </li>
-            <li  class="nav-item">
-              <a  class="nav-link p-2 p-lg-3 login" href="farm.html" >Farm</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3 logout" href="login.html">login</a>
+              <a class="nav-link p-2 p-lg-3 login" href="profile.html"
+                >Profile</a
+              >
             </li>
             <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3 login" href="logout.html">logout</a>
+              <a class="nav-link p-2 p-lg-3 login" href="farm.html">Farm</a>
             </li>
-              <li class="nav-item">
-                <a  class="nav-link p-2 p-lg-3" style="cursor: pointer; background-color: red;"  onclick="setlanguage('ar')">عربي</a>
-                
-
-              </li>
-              <li class="nav-item">
-                <a  class="nav-link p-2 p-lg-3" style="cursor: pointer; background-color: blue;" onclick="setlanguage('en')">english</a>
-              </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3 logout" href="login.html">login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3 login" href="logout.html">logout</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link nav-link p-2 p-lg-3 dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                En
+              </a>
+              <ul class="nav-item dropdown-menu">
+                <li><a class="dropdown-item" href="#">Ar</a></li>
+                <!-- <li><a class="dropdown-item" href="#">En</a></li> -->
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3"
+                style="cursor: pointer; background-color: red"
+                onclick="setlanguage('ar')"
+                >عربي</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3"
+                style="cursor: pointer; background-color: blue"
+                onclick="setlanguage('en')"
+                >english</a
+              >
+            </li>
           </ul>
         </div>
       </div>
@@ -157,9 +182,12 @@
     <!-- Start Contact Section -->
     <div class="container my-5">
       <div class="row" style="background-color: #f8f7f0">
-        <div id="response-message" class="alert " role="alert" style="display: none;">
-          
-        </div>
+        <div
+          id="response-message"
+          class="alert"
+          role="alert"
+          style="display: none"
+        ></div>
         <!-- Map Column (50%) -->
         <div class="col-md-6 col-sm-8 mb-4 mb-md-0 my-3 pt-3">
           <iframe
@@ -179,7 +207,8 @@
             <h1>Send us a message</h1>
             <div class="col-9">
               <label for="inputAddress" class="form-label">Name</label>
-              <input required
+              <input
+                required
                 type="text"
                 class="form-control"
                 id="name"
@@ -189,27 +218,41 @@
             </div>
             <div class="col-md-5">
               <label for="inputEmail4" class="form-label">Email</label>
-              <input  name= 'email' required type="email" class="form-control" id="email" />
+              <input
+                name="email"
+                required
+                type="email"
+                class="form-control"
+                id="email"
+              />
             </div>
             <div class="col-md-4">
               <label for="inputPassword4" class="form-label">Phone</label>
-              <input  type="tel" id="phone" name="phone" maxlength="15" required oninput="this.value = this.value.replace(/(?!^\+)[^\d]/g, '')" class="form-control" id="inputPassword4" />
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                maxlength="15"
+                required
+                oninput="this.value = this.value.replace(/(?!^\+)[^\d]/g, '')"
+                class="form-control"
+                id="inputPassword4"
+              />
             </div>
-            
+
             <div class="form-floating col-9">
-              <textarea required
+              <textarea
+                required
                 class="form-control"
                 placeholder="Leave a comment here"
                 id="message"
-                name= "message"
+                name="message"
                 style="height: 100px"
               ></textarea>
               <label for="floatingTextarea2">Comments</label>
             </div>
             <div class="col-12">
-              <button type="submit" class="btn btn-warning p-3">
-                Send
-              </button>
+              <button type="submit" class="btn btn-warning p-3">Send</button>
             </div>
           </form>
         </div>
@@ -396,12 +439,44 @@
             <div class="links">
               <h5 class="text-light">Explore</h5>
               <ul class="list-unstyled lh-lg">
-                <li><a class="text-white-50 text-decoration-none" href="Contact.html">about</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="Services.html">Our Services</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="profile.html">Profile</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="Farm.html">farm</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="">Our Project</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="Contact.html">contact</a></li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="Contact.html"
+                    >about</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="Services.html"
+                    >Our Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="profile.html"
+                    >Profile</a
+                  >
+                </li>
+                <li>
+                  <a class="text-white-50 text-decoration-none" href="Farm.html"
+                    >farm</a
+                  >
+                </li>
+                <li>
+                  <a class="text-white-50 text-decoration-none" href=""
+                    >Our Project</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="Contact.html"
+                    >contact</a
+                  >
+                </li>
               </ul>
             </div>
           </div>
@@ -409,11 +484,37 @@
             <div class="links">
               <h5 class="text-light">About Us</h5>
               <ul class="list-unstyled lh-lg">
-                <li><a class="text-white-50 text-decoration-none" href="login.html">Sign in</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="login.html">Register</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="Contact.html">About Us</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="">Blog</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="Contact.html">Contact us</a></li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="login.html"
+                    >Sign in</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="login.html"
+                    >Register</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="Contact.html"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="text-white-50 text-decoration-none" href="">Blog</a>
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="Contact.html"
+                    >Contact us</a
+                  >
+                </li>
               </ul>
             </div>
           </div>
@@ -470,6 +571,5 @@
     <script src="./Assets/JS/main.js"></script>
     <script src="./Assets/JS/contactapi.js"></script>
     <script src="./Assets/JS/check.js"></script>
-
   </body>
 </html>

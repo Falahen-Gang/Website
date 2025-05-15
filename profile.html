@@ -50,25 +50,50 @@
               <a class="nav-link p-2 p-lg-3" href="Services.html">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 login" href="profile.html">Profile</a>
-            </li>
-            <li  class="nav-item">
-              <a  class="nav-link p-2 p-lg-3 login" href="farm.html" >Farm</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3 logout" href="login.html">login</a>
+              <a class="nav-link p-2 p-lg-3 login" href="profile.html"
+                >Profile</a
+              >
             </li>
             <li class="nav-item">
-                <a class="nav-link p-2 p-lg-3 login" href="logout.html">logout</a>
+              <a class="nav-link p-2 p-lg-3 login" href="farm.html">Farm</a>
             </li>
-              <li class="nav-item">
-                <a  class="nav-link p-2 p-lg-3" style="cursor: pointer; background-color: red;"  onclick="setlanguage('ar')">عربي</a>
-                
-
-              </li>
-              <li class="nav-item">
-                <a  class="nav-link p-2 p-lg-3" style="cursor: pointer; background-color: blue;" onclick="setlanguage('en')">english</a>
-              </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3 logout" href="login.html">login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3 login" href="logout.html">logout</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link nav-link p-2 p-lg-3 dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                En
+              </a>
+              <ul class="nav-item dropdown-menu">
+                <li><a class="dropdown-item" href="#">Ar</a></li>
+                <!-- <li><a class="dropdown-item" href="#">En</a></li> -->
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3"
+                style="cursor: pointer; background-color: red"
+                onclick="setlanguage('ar')"
+                >عربي</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3"
+                style="cursor: pointer; background-color: blue"
+                onclick="setlanguage('en')"
+                >english</a
+              >
+            </li>
           </ul>
         </div>
       </div>
@@ -81,9 +106,7 @@
           <h2>My Farms</h2>
           <button id="add-farm" class="add-button">+</button>
         </div>
-        <ul class="farms-list"  id="map-container">
-
-        </ul>
+        <ul class="farms-list" id="map-container"></ul>
       </section>
 
       <section class="tasks-section">
@@ -101,9 +124,7 @@
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>
-            
-          </tbody>
+          <tbody></tbody>
         </table>
       </section>
     </div>
@@ -133,12 +154,44 @@
             <div class="links">
               <h5 class="text-light">Explore</h5>
               <ul class="list-unstyled lh-lg">
-                <li><a class="text-white-50 text-decoration-none" href="Contact.html">about</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="Services.html">Our Services</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="profile.html">Profile</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="Farm.html">farm</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="">Our Project</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="Contact.html">contact</a></li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="Contact.html"
+                    >about</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="Services.html"
+                    >Our Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="profile.html"
+                    >Profile</a
+                  >
+                </li>
+                <li>
+                  <a class="text-white-50 text-decoration-none" href="Farm.html"
+                    >farm</a
+                  >
+                </li>
+                <li>
+                  <a class="text-white-50 text-decoration-none" href=""
+                    >Our Project</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="Contact.html"
+                    >contact</a
+                  >
+                </li>
               </ul>
             </div>
           </div>
@@ -146,11 +199,37 @@
             <div class="links">
               <h5 class="text-light">About Us</h5>
               <ul class="list-unstyled lh-lg">
-                <li><a class="text-white-50 text-decoration-none" href="login.html">Sign in</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="login.html">Register</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="Contact.html">About Us</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="">Blog</a></li>
-                <li><a class="text-white-50 text-decoration-none" href="Contact.html">Contact us</a></li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="login.html"
+                    >Sign in</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="login.html"
+                    >Register</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="Contact.html"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="text-white-50 text-decoration-none" href="">Blog</a>
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="Contact.html"
+                    >Contact us</a
+                  >
+                </li>
               </ul>
             </div>
           </div>
@@ -201,14 +280,12 @@
     </div>
     <!-- end footer -->
     <!-- Bootstrap JS and Popper.js (required for some Bootstrap components like tooltips) -->
-     <script src="./Assets/JS/data.js"></script>
+    <script src="./Assets/JS/data.js"></script>
     <script src="./Assets/JS/bootstrap.bundle.min.js"></script>
     <script src="./Assets/JS/all.min.js"></script>
     <script src="./Assets/JS/main.js"></script>
     <script src="./Assets/JS/profile/profile.js"></script>
     <script src="./Assets/JS/check.js"></script>
     <script src="./Assets/JS/profile.js"></script>
-
-
   </body>
 </html>
