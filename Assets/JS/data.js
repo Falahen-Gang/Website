@@ -284,6 +284,22 @@
       'Notes' : 'ملاحظات',
       'English' : 'انجليزى',
       'Arabic' : 'عربى',
+      
+      "Soil analysis and nutrient mapping": "تحليل التربة ورسم خرائط المغذيات",
+      "Soil health plays a critical role in crop productivity and sustainable agriculture. Accurate soil analysis and nutrient mapping empower farmers to make informed decisions that maximize yield while minimizing environmental impact": "تلعب صحة التربة دورًا حاسمًا في إنتاجية المحاصيل والزراعة المستدامة. يتيح تحليل التربة الدقيق ورسم خرائط المغذيات للمزارعين اتخاذ قرارات مستنيرة تزيد من الإنتاجية وتقلل من التأثير البيئي",
+      "NPK Sensors": "أجهزة استشعار NPK",
+      "NPK sensors measure the concentration of Nitrogen (N), Phosphorus (P), and Potassium (K) in the soil, which are essential nutrients for plant growth. These sensors help identify nutrient deficiencies and allow for precise fertilization, reducing waste and improving crop performance": "تقيس أجهزة استشعار NPK تركيز النيتروجين (N) والفوسفور (P) والبوتاسيوم (K) في التربة، وهي عناصر غذائية أساسية لنمو النباتات. تساعد هذه الأجهزة في تحديد نقص العناصر وتسمح بالتسميد الدقيق، مما يقلل من الهدر ويحسن أداء المحاصيل",
+      "By integrating NPK sensors into soil monitoring systems, farmers can generate detailed nutrient maps of their fields. These maps support site-specific nutrient management, leading to increased efficiency, cost savings, and better environmental stewardship": "من خلال دمج أجهزة استشعار NPK في أنظمة مراقبة التربة، يمكن للمزارعين إنشاء خرائط مغذيات تفصيلية لحقولهم. تدعم هذه الخرائط إدارة المغذيات حسب الموقع، مما يؤدي إلى زيادة الكفاءة وتوفير التكاليف وتحسين الحفاظ على البيئة",
+      "Real-time soil data collection, optimized fertilizer usage, enhanced crop yields, and reduced risk of over-fertilization or nutrient leaching. It also supports sustainable farming practices and long-term soil conservation": "جمع بيانات التربة في الوقت الفعلي، واستخدام الأسمدة بشكل أمثل، وزيادة إنتاجية المحاصيل، وتقليل خطر التسميد الزائد أو تسرب العناصر الغذائية. كما يدعم ممارسات الزراعة المستدامة والحفاظ على التربة على المدى الطويل",
+      "Monitoring crop health is essential for ensuring optimal growth, improving yield quality, and preventing large-scale damage. Traditional methods of disease detection can be time-consuming and labor-intensive": "يعد مراقبة صحة المحاصيل أمرًا ضروريًا لضمان النمو الأمثل وتحسين جودة الإنتاج ومنع الأضرار واسعة النطاق. يمكن أن تكون الطرق التقليدية لاكتشاف الأمراض مستهلكة للوقت وتتطلب الكثير من الجهد",
+      "AI-Based Disease Detection": "الكشف عن الأمراض باستخدام الذكاء الاصطناعي",
+      "With the use of Artificial Intelligence, farmers can now detect crop diseases in real-time through image-based analysis. AI models trained on vast datasets can accurately identify symptoms such as leaf discoloration, spots, or deformities, helping in early-stage diagnosis and action": "باستخدام الذكاء الاصطناعي، يمكن للمزارعين الآن اكتشاف أمراض المحاصيل في الوقت الفعلي من خلال التحليل القائم على الصور. يمكن لنماذج الذكاء الاصطناعي المدربة على مجموعات بيانات ضخمة تحديد الأعراض بدقة مثل تغير لون الأوراق أو البقع أو التشوهات، مما يساعد في التشخيص المبكر واتخاذ الإجراءات",
+      "This advanced method not only improves detection speed and accuracy but also minimizes the use of pesticides and reduces crop loss. The system can be integrated with smartphones or drones for wider coverage and monitoring": "لا تعمل هذه الطريقة المتقدمة على تحسين سرعة ودقة الاكتشاف فحسب، بل تقلل أيضًا من استخدام المبيدات وتقليل خسائر المحاصيل. يمكن دمج النظام مع الهواتف الذكية أو الطائرات بدون طيار لتغطية أوسع ومراقبة أفضل",
+      "Benefits": "الفوائد",
+      "Early disease detection, reduced manual inspection, optimized use of agrochemicals, improved yield quality, and sustainable farming practices. AI enhances decision-making by providing actionable insights based on real-time data": "اكتشاف مبكر للأمراض، تقليل الفحص اليدوي، استخدام أمثل للمواد الكيميائية الزراعية، تحسين جودة الإنتاج، وممارسات زراعية مستدامة. يعزز الذكاء الاصطناعي اتخاذ القرار من خلال تقديم رؤى قابلة للتنفيذ بناءً على البيانات في الوقت الفعلي",
+      "Tomatoes": "الطماطم"
+
+
     }
 };
 
