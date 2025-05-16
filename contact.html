@@ -37,36 +37,41 @@
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a
-                class="nav-link p-2 p-lg-3"
+                class="nav-link p-2 p-lg-3 "
                 aria-current="page"
                 href="Home.html"
+                data-key="Home"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link p-lg-3 active" href="Contact.html">Contact</a>
+              <a class="nav-link p-2 p-lg-3 active" data-key="Contact" href="Contact.html">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3" href="Services.html">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 login" href="profile.html"
-                >Profile</a
+              <a class="nav-link p-lg-3 " href="Services.html"
+              data-key="Services"
+                >Services</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 login" href="farm.html">Farm</a>
+              <a class="nav-link p-2 p-lg-3 login" href="profile.html"
+              data-key="Profile"  
+              >Profile</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 logout" href="login.html">login</a>
+              <a   class="nav-link p-2 p-lg-3 login" href="farm.html" data-key='Farm'>Farm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 login" href="logout.html">logout</a>
+              <a class="nav-link p-2 p-lg-3 logout" data-key="login" href="login.html">login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3 login" href="logout.html" data-key="logout">logout</a>
             </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link nav-link p-2 p-lg-3 dropdown-toggle"
-                href="#"
+                onclick="setlanguage('en')"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -74,11 +79,11 @@
                 En
               </a>
               <ul class="nav-item dropdown-menu">
-                <li><a class="dropdown-item" href="#">Ar</a></li>
+                <li><a class="dropdown-item" onclick="setlanguage('ar')" >Ar</a></li>
                 <!-- <li><a class="dropdown-item" href="#">En</a></li> -->
               </ul>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a
                 class="nav-link p-2 p-lg-3"
                 style="cursor: pointer; background-color: red"
@@ -93,7 +98,7 @@
                 onclick="setlanguage('en')"
                 >english</a
               >
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -106,14 +111,16 @@
       >
         <p>
           <a class="fw-bold text-decoration-none text-dark" href="Home.html"
+          data-key="Home"
             >Home</a
           >
           /
           <a class="fw-bold text-decoration-none text-dark" href="Contact.html"
-            >Contact</a
+            data-key="Contact"
+          >Contact</a
           >
         </p>
-        <h1>Contact</h1>
+        <h1 data-key="Contact">Contact</h1>
       </div>
     </div>
     <!-- end landing section -->
@@ -132,9 +139,9 @@
           "
         >
           <div class="card-body">
-            <h5 class="card-title">About</h5>
+            <h5 class="card-title"  data-key="About">About</h5>
 
-            <p class="card-text fw-light">
+            <p class="card-text fw-light" data-key="We build smart robots that detect tomato plant diseases in real-time, helping farmers improve crop health and yield">
               We build smart robots that detect tomato plant diseases in
               real-time, helping farmers improve crop health and yield.
             </p>
@@ -150,7 +157,7 @@
           "
         >
           <div class="card-body">
-            <h5 class="card-title">Contact</h5>
+            <h5 class="card-title" data-key="Contact">Contact</h5>
             <p class="card-text fw-light">+1- (246) 333-0079</p>
             <p class="card-text fw-light">
               <a href="#" class="card-link text-decoration-none text-light"
@@ -170,8 +177,8 @@
           "
         >
           <div class="card-body">
-            <h5 class="card-title">Address</h5>
-            <p class="card-text fw-normal">
+            <h5 class="card-title" data-key="Address">Address</h5>
+            <p class="card-text fw-normal" data-key="66 Broklun Road Golden Street, New Yourk United States of America">
               66 Broklun Road Golden Street, New Yourk United States of America.
             </p>
           </div>
@@ -203,10 +210,10 @@
 
         <div class="col-md-5 my-3 p-3" style="background-color: white">
           <form class="row g-3" id="contact-form">
-            <span class="fs-4" style="color: #4baf47">Have Questions?</span>
-            <h1>Send us a message</h1>
+            <span class="fs-4" style="color: #4baf47" data-key="Have Questions">Have Questions?</span>
+            <h1 data-key="Send us a message"> Send us a message</h1>
             <div class="col-9">
-              <label for="inputAddress" class="form-label">Name</label>
+              <label for="inputAddress" class="form-label" data-key="Name">Name</label>
               <input
                 required
                 type="text"
@@ -217,7 +224,7 @@
               />
             </div>
             <div class="col-md-5">
-              <label for="inputEmail4" class="form-label">Email</label>
+              <label for="inputEmail4" class="form-label" data-key="Email">Email</label>
               <input
                 name="email"
                 required
@@ -227,7 +234,7 @@
               />
             </div>
             <div class="col-md-4">
-              <label for="inputPassword4" class="form-label">Phone</label>
+              <label for="inputPassword4" class="form-label" data-key="Phone">Phone</label>
               <input
                 type="tel"
                 id="phone"
@@ -249,10 +256,10 @@
                 name="message"
                 style="height: 100px"
               ></textarea>
-              <label for="floatingTextarea2">Comments</label>
+              <label for="floatingTextarea2" data-key="Comments">Comments</label>
             </div>
             <div class="col-12">
-              <button type="submit" class="btn btn-warning p-3">Send</button>
+              <button type="submit" class="btn btn-warning p-3" data-key="Send">Send</button>
             </div>
           </form>
         </div>
@@ -260,11 +267,11 @@
     </div>
     <!-- End Contact Section -->
     <!-- Start team section -->
-    <div
+        <div
       class="container d-flex flex-column justify-content-center align-items-center"
     >
-      <h1 class="m-3">Meet our team</h1>
-      <p class="w-75 text-center text-black-50 mb-3 p-3">
+      <h1 class="m-3" data-key="Meet our team">Meet our team</h1>
+      <p class="w-75 text-center text-black-50 mb-3 p-3" data-key="Our team comprises engineers, developers, and data scientists dedicated to pushing the boundaries of agricultural technology. We are committed to continuous innovation and customer satisfaction">
         Our team comprises engineers, developers, and data scientists dedicated
         to pushing the boundaries of agricultural technology. We are committed
         to continuous innovation and customer satisfaction.
@@ -282,7 +289,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Mahmoud Elsanour</p>
+              <p class="team" data-key="Mahmoud Elsanour">Mahmoud Elsanour</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -295,7 +302,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Mohamed Ayman</p>
+              <p class="team" data-key="Mohamed Ayman">Mohamed Ayman</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -308,7 +315,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Ziyad Sameh</p>
+              <p class="team" data-key="Ziyad Sameh">Ziyad Sameh</p>
             </div>
           </div>
         </div>
@@ -325,7 +332,7 @@
                 src="./Assets/IMG/Home/team-08.jpg"
                 alt=""
               />
-              <p class="team">Mary Ashraf</p>
+              <p class="team" data-key="Mary Ashraf">Mary Ashraf</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -338,7 +345,7 @@
                 src="./Assets/IMG/Home/team-08.jpg"
                 alt=""
               />
-              <p class="team">Alaa Ali</p>
+              <p class="team" data-key="Alaa Ali">Alaa Ali</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -351,7 +358,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Medhat Mohammed</p>
+              <p class="team" data-key="Medhat Mohammed">Medhat Mohammed</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -364,7 +371,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Ziyad Mohammed</p>
+              <p class="team" data-key="Ziyad Mohammed">Ziyad Mohammed</p>
             </div>
           </div>
         </div>
@@ -381,7 +388,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Salah Mohammed</p>
+              <p class="team" data-key="Salah Mohammed">Salah Mohammed</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -394,7 +401,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Ayoub Bakr</p>
+              <p class="team" data-key="Ayoub Bakr">Ayoub Bakr</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -407,7 +414,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Ahmed Elkerdawy</p>
+              <p class="team" data-key="Ahmed Elkerdawy">Ahmed Elkerdawy</p>
             </div>
           </div>
         </div>
@@ -425,56 +432,56 @@
                 src="./Assets/IMG/Home/logo.png"
                 alt=""
               />
-              <p class="mb-5">
+              <p class="mb-5" data-key="Innovative robotic and AI-powered solutions that address the critical challenges facing modern agriculture">
                 Innovative robotic and AI-powered solutions that address the
                 critical challenges facing modern agriculture.
               </p>
               <div class="copyright">
-                Created By <span>Graphberry</span>
+                <!-- Created By <span>Graphberry</span> -->
                 <div>&copy; 2024 - <span>AGRI ROBO</span></div>
               </div>
             </div>
           </div>
           <div class="col-lg-2 col-md-6">
             <div class="links">
-              <h5 class="text-light">Explore</h5>
+              <h5 class="text-light" data-key="Explore">Explore</h5>
               <ul class="list-unstyled lh-lg">
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
                     href="Contact.html"
-                    >about</a
+                     data-key="about">about</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="Services.html"
+                    href="Services.html" data-key="Our Services"
                     >Our Services</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="profile.html"
+                    href="profile.html" data-key="Profile"
                     >Profile</a
                   >
                 </li>
                 <li>
                   <a class="text-white-50 text-decoration-none" href="Farm.html"
-                    >farm</a
+                     data-key="farm">farm</a
                   >
                 </li>
                 <li>
                   <a class="text-white-50 text-decoration-none" href=""
-                    >Our Project</a
+                    data-key="Our Project">Our Project</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
                     href="Contact.html"
-                    >contact</a
+                    data-key="contact">contact</a
                   >
                 </li>
               </ul>
@@ -482,36 +489,36 @@
           </div>
           <div class="col-lg-2 col-md-6">
             <div class="links">
-              <h5 class="text-light">About Us</h5>
+              <h5 class="text-light" data-key="About Us">About Us</h5>
               <ul class="list-unstyled lh-lg">
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="login.html"
+                    href="login.html" data-key="Sign in"
                     >Sign in</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="login.html"
+                    href="login.html" data-key="Register"
                     >Register</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="Contact.html"
+                    href="Contact.html" data-key="About Us"
                     >About Us</a
                   >
                 </li>
                 <li>
-                  <a class="text-white-50 text-decoration-none" href="">Blog</a>
+                  <a class="text-white-50 text-decoration-none" href="" data-key="Blog">Blog</a>
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="Contact.html"
+                    href="Contact.html" data-key="Contact us"
                     >Contact us</a
                   >
                 </li>
@@ -520,8 +527,8 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="contact">
-              <h5 class="text-light mb-3">Contact Us</h5>
-              <p class="mb-5 fs-6 lh-lg fw-bold">
+              <h5 class="text-light mb-3" data-key="Contact Us">Contact Us</h5>
+              <p class="mb-5 fs-6 lh-lg fw-bold" data-key="Get in touch with us via mail phone.We are waiting for your call or message">
                 Get in touch with us via mail phone.We are waiting for your call
                 or message
               </p>

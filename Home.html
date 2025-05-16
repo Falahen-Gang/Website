@@ -36,34 +36,42 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link p-lg-3 active" aria-current="page" href="#"
+              <a
+                class="nav-link p-2 p-lg-3 active"
+                aria-current="page"
+                href="Home.html"
+                data-key="Home"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3" href="Contact.html">Contact</a>
+              <a class="nav-link p-2 p-lg-3" data-key="Contact" href="Contact.html">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3" href="Services.html">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 login" href="profile.html"
-                >Profile</a
+              <a class="nav-link p-lg-3 " href="Services.html"
+              data-key="Services"
+                >Services</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 login" href="farm.html">Farm</a>
+              <a class="nav-link p-2 p-lg-3 login" href="profile.html"
+              data-key="Profile"  
+              >Profile</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 logout" href="login.html">login</a>
+              <a   class="nav-link p-2 p-lg-3 login" href="farm.html" data-key='Farm'>Farm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 login" href="logout.html">logout</a>
+              <a class="nav-link p-2 p-lg-3 logout" data-key="login" href="login.html">login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3 login" href="logout.html" data-key="logout">logout</a>
             </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link nav-link p-2 p-lg-3 dropdown-toggle"
-                href="#"
+                onclick="setlanguage('en')"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -71,11 +79,11 @@
                 En
               </a>
               <ul class="nav-item dropdown-menu">
-                <li><a class="dropdown-item" href="#">Ar</a></li>
+                <li><a class="dropdown-item" onclick="setlanguage('ar')" >Ar</a></li>
                 <!-- <li><a class="dropdown-item" href="#">En</a></li> -->
               </ul>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a
                 class="nav-link p-2 p-lg-3"
                 style="cursor: pointer; background-color: red"
@@ -90,7 +98,7 @@
                 onclick="setlanguage('en')"
                 >english</a
               >
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -101,15 +109,15 @@
       <div
         class="d-flex flex-column mb-3 container text-center h-100 justify-content-around align-items-center"
       >
-        <h1 class="text-light p-3" data-key="WELCOME_TO_AGRIROBOT">
+        <h1 class="text-light p-3" data-key="WELCOME TO AGRIROBOT">
           WELCOME TO AGRIROBOT
         </h1>
         <p
           class="text-light p-3 w-50 p-3 d-flex flex-column mb-3 container text-center align-items-center"
         >
-          <span class="fs-1 fw-bold">Smart</span>
-          <span class="fs-1 fw-bold">Farming solutions</span>
-          <span class="fs-1 fw-bold">powered by AI</span>
+          <span class="fs-1 fw-bold" data-key="Smart">Smart</span>
+          <span class="fs-1 fw-bold" data-key="Farming solutions">Farming solutions</span>
+          <span class="fs-1 fw-bold" data-key="powered by AI">powered by AI</span>
         </p>
         <div>
           <button
@@ -117,9 +125,9 @@
             type="button"
             class="hover btn btn-success rounded-pill"
           >
-            <a class="text-decoration-none text-light" href="">Show Now</a>
+            <a class="text-decoration-none text-light" href="" data-key="Show Now">Show Now</a>
           </button>
-          <p class="text-light p-3 fs-1 fw-bold">
+          <p class="text-light p-3 fs-1 fw-bold" data-key="For sustainable agricultural future">
             - For sustainable agricultural future -
           </p>
         </div>
@@ -143,12 +151,12 @@
           />
         </div>
         <div class="col-md-6 col-12 d-flex flex-column mt-3 align-items-center">
-          <h3 class="mb-2">About AgriBot Solutions</h3>
+          <h3 class="mb-2" data-key="About AgriBot Solutions">About AgriBot Solutions</h3>
           <div class="mt-2 d-flex flex-column align-items-center">
-            <p class="fs-4 fw-bold" style="max-width: 300px; color: #4baf47">
+            <p class="fs-4 fw-bold" style="max-width: 300px; color: #4baf47" data-key="Revolutionizing Agriculture with Smart Technology">
               Revolutionizing Agriculture with Smart Technology
             </p>
-            <p class="mt-3" style="max-width: 350px; color: #8aa08a">
+            <p class="mt-3" style="max-width: 350px; color: #8aa08a" data-key="At AgriBot Solutions, we’re passionate about empowering farmers with cutting-edge technology to improve efficiency, sustainability, and profitability We believe that the future of agriculture lies in smart, data-driven solutions, and our flagship product, the AgriBot, is at the forefront of this revolution">
               At AgriBot Solutions, we’re passionate about empowering farmers
               with cutting-edge technology to improve efficiency,
               sustainability, and profitability. We believe that the future of
@@ -165,7 +173,7 @@
                 style="height: 30px"
                 alt="Efficiency Icon"
               />
-              <span>Efficiency and Profitability</span>
+              <span data-key="Efficiency and Profitability">Efficiency and Profitability</span>
             </div>
             <div class="d-flex align-items-center gap-2">
               <img
@@ -173,7 +181,7 @@
                 style="height: 30px"
                 alt="Autonomy Icon"
               />
-              <span>Autonomous Operations</span>
+              <span data-key="Autonomous Operations"> Autonomous Operations</span>
             </div>
           </div>
           <button
@@ -181,7 +189,7 @@
             type="button"
             class="hover btn btn-success rounded-pill mt-3 px-4"
           >
-            <a class="text-decoration-none text-light" href="Services.html"
+            <a data-key="Shop Now" class="text-decoration-none text-light" href="Services.html"
               >Shop Now</a
             >
           </button>
@@ -193,8 +201,8 @@
     <div class="features">
       <div class="container mt-3">
         <div class="d-flex flex-column text-center align-items-center p-3">
-          <h2 class="mt-3">What We Offer</h2>
-          <p class="w-50 p-3">
+          <h2 class="mt-3" data-key="What We Offer">What We Offer</h2>
+          <p data-key="The AgriBot is a versatile, autonomous robot designed to perform a range of essential farming tasks with precision and reliability Equipped with advanced sensors and AI algorithms, the AgriBot can" class="w-50 p-3">
             The AgriBot is a versatile, autonomous robot designed to perform a
             range of essential farming tasks with precision and reliability.
             Equipped with advanced sensors and AI algorithms, the AgriBot can:
@@ -216,8 +224,8 @@
                 alt=""
               />
               <div class="card-body">
-                <h5 class="card-title">Weed Detection and Removal</h5>
-                <p class="card-text">
+                <h5 class="card-title" data-key="Weed Detection and Removal">Weed Detection and Removal</h5>
+                <p class="card-text" data-key="Precise and efficient weeding services, minimizing chemical inputs">
                   Precise and efficient weeding services, minimizing chemical
                   inputs.
                 </p>
@@ -236,8 +244,8 @@
                 alt=""
               />
               <div class="card-body">
-                <h5 class="card-title">Crop Health Monitoring</h5>
-                <p class="card-text">
+                <h5 class="card-title" data-key="Crop Health Monitoring">Crop Health Monitoring</h5>
+                <p class="card-text" data-key="Early detection of crop stress and disease through continuous data collection and analysis">
                   Early detection of crop stress and disease through continuous
                   data collection and analysis.
                 </p>
@@ -256,8 +264,8 @@
                 alt=""
               />
               <div class="card-body">
-                <h5 class="card-title">Soil Analysis and Mapping</h5>
-                <p class="card-text">
+                <h5 class="card-title" data-key="Soil Analysis and Mapping">Soil Analysis and Mapping</h5>
+                <p class="card-text" data-key="Detailed soil composition and nutrient mapping for optimized fertilization">
                   Detailed soil composition and nutrient mapping for optimized
                   fertilization.
                 </p>
@@ -273,7 +281,7 @@
       <div
         class="container h-100 d-flex flex-column align-items-center justify-content-center"
       >
-        <h1 class="w-75 text-center">
+        <h1 class="w-75 text-center" data-key="Tailored services to meet the specific needs of individual farms and crops">
           Tailored services to meet the specific needs of individual farms and
           crops.
         </h1>
@@ -283,7 +291,7 @@
           class="hover btn btn-success rounded-pill"
         >
           <a class="text-decoration-none text-light" href="Services.html"
-            >Show Now</a
+             data-key="Shop Now">Show Now</a
           >
         </button>
       </div>
@@ -299,11 +307,11 @@
               class="rounded img-fluid"
               alt=""
             />
-            <div class="overlay position-absolute">Transform your farm</div>
+            <div class="overlay position-absolute" data-key="Transform your farm">Transform your farm</div>
           </div>
         </div>
         <div class="col-12 col-md-7">
-          <h2 class="text-center p-3">Why choose Agribot</h2>
+          <h2 class="text-center p-3" data-key="Why choose Agribot">Why choose Agribot</h2>
           <div class="accordion m-3" id="accordionPanelsStayOpenExample">
             <div class="accordion m-3" id="accordionPanelsStayOpenExample">
               <div class="accordion-item">
@@ -315,7 +323,7 @@
                     data-bs-target="#panelsStayOpen-collapseOne"
                     aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseOne"
-                  >
+                   data-key="Autonomous Operation">
                     Autonomous Operation
                   </button>
                 </h2>
@@ -324,7 +332,7 @@
                   class="accordion-collapse collapse show"
                   aria-labelledby="panelsStayOpen-headingOne"
                 >
-                  <div class="accordion-body">
+                  <div class="accordion-body" data-key='The robot’s autonomous navigation and task execution capabilities free up farmers" time and labor, allowing them to focus on other critical aspects of their operations'>
                     The robot’s autonomous navigation and task execution
                     capabilities free up farmers' time and labor, allowing them
                     to focus on other critical aspects of their operations.
@@ -340,7 +348,7 @@
                     data-bs-target="#panelsStayOpen-collapseTwo"
                     aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseTwo"
-                  >
+                    data-key="Sustainable Practices">
                     Sustainable Practices
                   </button>
                 </h2>
@@ -349,7 +357,7 @@
                   class="accordion-collapse collapse"
                   aria-labelledby="panelsStayOpen-headingTwo"
                 >
-                  <div class="accordion-body">
+                  <div class="accordion-body" data-key="By reducing herbicide use and optimizing resource management, it prevents lots of damage to the crops and has a negative impact on both the environment and human health">
                     By reducing herbicide use and optimizing resource
                     management, it prevents lots of damage to the crops and has
                     a negative impact on both the environment and human health.
@@ -365,7 +373,7 @@
                     data-bs-target="#panelsStayOpen-collapseThree"
                     aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseThree"
-                  >
+                   data-key="Soil Health Management">
                     Soil Health Management
                   </button>
                 </h2>
@@ -374,7 +382,7 @@
                   class="accordion-collapse collapse"
                   aria-labelledby="panelsStayOpen-headingThree"
                 >
-                  <div class="accordion-body">
+                  <div class="accordion-body" data-key="Integrated sensors analyze soil composition, hydration, and nutrient levels, providing valuable data to optimize fertilization and irrigation practices">
                     Integrated sensors analyze soil composition, hydration, and
                     nutrient levels, providing valuable data to optimize
                     fertilization and irrigation practices.
@@ -403,8 +411,8 @@
         <div
           class="col-12 col-md-4 mb-3 d-flex flex-column justify-content-center align-items-center"
         >
-          <h2 class="m-3 fs-1 fw-bolder text-warning">Interested?</h2>
-          <p class="w-75 text-center text-light m-3">
+          <h2 class="m-3 fs-1 fw-bolder text-warning" data-key="Interested">Interested?</h2>
+          <p class="w-75 text-center text-light m-3" data-key="If you want to know more about our solution and company feel free to get in contact">
             If you want to know more about our solution and company feel free to
             get in contact.
           </p>
@@ -414,7 +422,7 @@
             class="hover btn btn-success rounded-pill"
           >
             <a class="text-decoration-none text-light" href="Contact.html"
-              >Contact us</a
+               data-key="Contact us">Contact us</a
             >
           </button>
         </div>
@@ -425,8 +433,8 @@
     <div
       class="container d-flex flex-column justify-content-center align-items-center"
     >
-      <h1 class="m-3">Meet our team</h1>
-      <p class="w-75 text-center text-black-50 mb-3 p-3">
+      <h1 class="m-3" data-key="Meet our team">Meet our team</h1>
+      <p class="w-75 text-center text-black-50 mb-3 p-3" data-key="Our team comprises engineers, developers, and data scientists dedicated to pushing the boundaries of agricultural technology. We are committed to continuous innovation and customer satisfaction">
         Our team comprises engineers, developers, and data scientists dedicated
         to pushing the boundaries of agricultural technology. We are committed
         to continuous innovation and customer satisfaction.
@@ -444,7 +452,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Mahmoud Elsanour</p>
+              <p class="team" data-key="Mahmoud Elsanour">Mahmoud Elsanour</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -457,7 +465,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Mohamed Ayman</p>
+              <p class="team" data-key="Mohamed Ayman">Mohamed Ayman</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -470,7 +478,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Ziyad Sameh</p>
+              <p class="team" data-key="Ziyad Sameh">Ziyad Sameh</p>
             </div>
           </div>
         </div>
@@ -487,7 +495,7 @@
                 src="./Assets/IMG/Home/team-08.jpg"
                 alt=""
               />
-              <p class="team">Mary Ashraf</p>
+              <p class="team" data-key="Mary Ashraf">Mary Ashraf</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -500,7 +508,7 @@
                 src="./Assets/IMG/Home/team-08.jpg"
                 alt=""
               />
-              <p class="team">Alaa Ali</p>
+              <p class="team" data-key="Alaa Ali">Alaa Ali</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -513,7 +521,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Medhat Mohammed</p>
+              <p class="team" data-key="Medhat Mohammed">Medhat Mohammed</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -526,7 +534,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Ziyad Mohammed</p>
+              <p class="team" data-key="Ziyad Mohammed">Ziyad Mohammed</p>
             </div>
           </div>
         </div>
@@ -543,7 +551,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Salah Mohammed</p>
+              <p class="team" data-key="Salah Mohammed">Salah Mohammed</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -556,7 +564,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Ayoub Bakr</p>
+              <p class="team" data-key="Ayoub Bakr">Ayoub Bakr</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -569,7 +577,7 @@
                 src="./Assets/IMG/Home/avatar-05.png"
                 alt=""
               />
-              <p class="team">Ahmed Elkerdawy</p>
+              <p class="team" data-key="Ahmed Elkerdawy">Ahmed Elkerdawy</p>
             </div>
           </div>
         </div>
@@ -587,56 +595,56 @@
                 src="./Assets/IMG/Home/logo.png"
                 alt=""
               />
-              <p class="mb-5">
+              <p class="mb-5" data-key="Innovative robotic and AI-powered solutions that address the critical challenges facing modern agriculture">
                 Innovative robotic and AI-powered solutions that address the
                 critical challenges facing modern agriculture.
               </p>
               <div class="copyright">
-                Created By <span>Graphberry</span>
+                <!-- Created By <span>Graphberry</span> -->
                 <div>&copy; 2024 - <span>AGRI ROBO</span></div>
               </div>
             </div>
           </div>
           <div class="col-lg-2 col-md-6">
             <div class="links">
-              <h5 class="text-light">Explore</h5>
+              <h5 class="text-light" data-key="Explore">Explore</h5>
               <ul class="list-unstyled lh-lg">
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
                     href="Contact.html"
-                    >about</a
+                     data-key="about">about</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="Services.html"
+                    href="Services.html" data-key="Our Services"
                     >Our Services</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="profile.html"
+                    href="profile.html" data-key="Profile"
                     >Profile</a
                   >
                 </li>
                 <li>
                   <a class="text-white-50 text-decoration-none" href="Farm.html"
-                    >farm</a
+                     data-key="farm">farm</a
                   >
                 </li>
                 <li>
                   <a class="text-white-50 text-decoration-none" href=""
-                    >Our Project</a
+                    data-key="Our Project">Our Project</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
                     href="Contact.html"
-                    >contact</a
+                    data-key="contact">contact</a
                   >
                 </li>
               </ul>
@@ -644,36 +652,36 @@
           </div>
           <div class="col-lg-2 col-md-6">
             <div class="links">
-              <h5 class="text-light">About Us</h5>
+              <h5 class="text-light" data-key="About Us">About Us</h5>
               <ul class="list-unstyled lh-lg">
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="login.html"
+                    href="login.html" data-key="Sign in"
                     >Sign in</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="login.html"
+                    href="login.html" data-key="Register"
                     >Register</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="Contact.html"
+                    href="Contact.html" data-key="About Us"
                     >About Us</a
                   >
                 </li>
                 <li>
-                  <a class="text-white-50 text-decoration-none" href="">Blog</a>
+                  <a class="text-white-50 text-decoration-none" href="" data-key="Blog">Blog</a>
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="Contact.html"
+                    href="Contact.html" data-key="Contact us"
                     >Contact us</a
                   >
                 </li>
@@ -682,8 +690,8 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="contact">
-              <h5 class="text-light mb-3">Contact Us</h5>
-              <p class="mb-5 fs-6 lh-lg fw-bold">
+              <h5 class="text-light mb-3" data-key="Contact Us">Contact Us</h5>
+              <p class="mb-5 fs-6 lh-lg fw-bold" data-key="Get in touch with us via mail phone.We are waiting for your call or message">
                 Get in touch with us via mail phone.We are waiting for your call
                 or message
               </p>

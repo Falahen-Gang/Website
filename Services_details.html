@@ -38,35 +38,38 @@
                 class="nav-link p-2 p-lg-3"
                 aria-current="page"
                 href="Home.html"
+                data-key="Home"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3" href="Contact.html">Contact</a>
+              <a class="nav-link p-2 p-lg-3" data-key="Contact" href="Contact.html">Contact</a>
             </li>
             <li class="nav-item">
               <a class="nav-link p-lg-3 active" href="Services.html"
+              data-key="Services"
                 >Services</a
               >
             </li>
             <li class="nav-item">
               <a class="nav-link p-2 p-lg-3 login" href="profile.html"
-                >Profile</a
+              data-key="Profile"  
+              >Profile</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 login" href="farm.html">Farm</a>
+              <a   class="nav-link p-2 p-lg-3 login" href="farm.html" data-key='Farm'>Farm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 logout" href="login.html">login</a>
+              <a class="nav-link p-2 p-lg-3 logout" data-key="login" href="login.html">login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 login" href="logout.html">logout</a>
+              <a class="nav-link p-2 p-lg-3 login" href="logout.html" data-key="logout">logout</a>
             </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link nav-link p-2 p-lg-3 dropdown-toggle"
-                href="#"
+                onclick="setlanguage('en')"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -74,11 +77,11 @@
                 En
               </a>
               <ul class="nav-item dropdown-menu">
-                <li><a class="dropdown-item" href="#">Ar</a></li>
+                <li><a class="dropdown-item" onclick="setlanguage('ar')" >Ar</a></li>
                 <!-- <li><a class="dropdown-item" href="#">En</a></li> -->
               </ul>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a
                 class="nav-link p-2 p-lg-3"
                 style="cursor: pointer; background-color: red"
@@ -93,7 +96,7 @@
                 onclick="setlanguage('en')"
                 >english</a
               >
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -106,14 +109,14 @@
       >
         <p>
           <a class="fw-bold text-decoration-none text-dark" href="Home.html"
-            >Home</a
+              data-key="Home">Home</a
           >
           /
-          <a class="fw-bold text-decoration-none text-dark" href="Services.html"
+          <a data-key="Services" class="fw-bold text-decoration-none text-dark" href="Services.html"
             >Services</a
           >
         </p>
-        <h1>Contact</h1>
+        <h1 data-key="Services">Services</h1>
       </div>
     </div>
     <!-- end landing section -->
@@ -140,9 +143,9 @@
                 <div
                   class="card-body d-flex flex-column justify-content-between h-100"
                 >
-                  <h5 class="card-title">Sustainable weed removal</h5>
+                  <h5 class="card-title" data-key="Sustainable weed removal">Sustainable weed removal</h5>
                   <h6 class="text-success ps-2 fs-4">$49.99</h6>
-                  <p class="card-text text-muted ps-2">
+                  <p class="card-text text-muted ps-2" data-key="This is a brief description of the product, highlighting key features or benefits">
                     This is a brief description of the product, highlighting key
                     features or benefits.
                   </p>
@@ -151,16 +154,17 @@
                       class="btn btn btn-success btn-sm me-2"
                       title="Add "
                       onclick="location.assign('add_task.html')"
+                      data-key="Add to cart"
                     >
                       Add to cart
                     </button>
 
-                    <button
+                    <!-- <button
                       class="btn btn btn-danger btn-sm"
                       title="View Details"
                     >
                       <i class="fa-solid fa-heart"></i>
-                    </button>
+                    </button> -->
                   </div>
                 </div>
               </div>
@@ -173,17 +177,17 @@
       <!-- Description Section -->
       <div class="row justify-content-center">
         <div class="col-lg-8">
-          <h4 class="fw-bold mb-4">Description</h4>
+          <h4 class="fw-bold mb-4" data-key="Description">Description</h4>
 
           <!-- First Block -->
           <div class="mb-4">
-            <p>
+            <p data-key="Farmers face a wide range of challenges that can impact their yields and profitability. Here are some of the key issues they grapple with">
               Farmers face a wide range of challenges that can impact their
               yields and profitability. Here are some of the key issues they
               grapple with:
             </p>
-            <p class="fw-semibold">Weeds:</p>
-            <p class="text-muted">
+            <p class="fw-semibold" data-key="Weeds">Weeds:</p>
+            <p class="text-muted" data-key="Weeds compete with plants for essential resources like sunlight, water, and nutrients, hindering their growth and reducing yields. They can also harbor pests and diseases">
               Weeds compete with plants for essential resources like sunlight,
               water, and nutrients, hindering their growth and reducing yields.
               They can also harbor pests and diseases.
@@ -191,7 +195,7 @@
           </div>
 
           <!-- Second Block -->
-          <div class="mb-4">
+          <!-- <div class="mb-4">
             <p>
               Farmers face a wide range of challenges that can impact their
               yields and profitability. Here are some of the key issues they
@@ -203,11 +207,11 @@
               water, and nutrients, hindering their growth and reducing yields.
               They can also harbor pests and diseases.
             </p>
-          </div>
+          </div> -->
 
           <!-- Back Button -->
           <div class="text-start mt-5">
-            <a href="services.html" class="btn btn-warning rounded-3 px-4 py-2">
+            <a href="services.html" class="btn btn-warning rounded-3 px-4 py-2" data-key="Back to other services">
               Back to other services
             </a>
           </div>
@@ -216,7 +220,7 @@
     </div>
     <!--End Product Section -->
     <!-- start footer -->
-    <div class="footer pt-5 text-white-50 text-center text-md-start">
+    <div class="footer pb-5 pt-5 text-white-50 text-center text-md-start">
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-6">
@@ -226,56 +230,56 @@
                 src="./Assets/IMG/Home/logo.png"
                 alt=""
               />
-              <p class="mb-5">
+              <p class="mb-5" data-key="Innovative robotic and AI-powered solutions that address the critical challenges facing modern agriculture">
                 Innovative robotic and AI-powered solutions that address the
                 critical challenges facing modern agriculture.
               </p>
               <div class="copyright">
-                Created By <span>Graphberry</span>
+                <!-- Created By <span>Graphberry</span> -->
                 <div>&copy; 2024 - <span>AGRI ROBO</span></div>
               </div>
             </div>
           </div>
           <div class="col-lg-2 col-md-6">
             <div class="links">
-              <h5 class="text-light">Explore</h5>
+              <h5 class="text-light" data-key="Explore">Explore</h5>
               <ul class="list-unstyled lh-lg">
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
                     href="Contact.html"
-                    >about</a
+                     data-key="about">about</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="Services.html"
+                    href="Services.html" data-key="Our Services"
                     >Our Services</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="profile.html"
+                    href="profile.html" data-key="Profile"
                     >Profile</a
                   >
                 </li>
                 <li>
                   <a class="text-white-50 text-decoration-none" href="Farm.html"
-                    >farm</a
+                     data-key="farm">farm</a
                   >
                 </li>
                 <li>
                   <a class="text-white-50 text-decoration-none" href=""
-                    >Our Project</a
+                    data-key="Our Project">Our Project</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
                     href="Contact.html"
-                    >contact</a
+                    data-key="contact">contact</a
                   >
                 </li>
               </ul>
@@ -283,36 +287,36 @@
           </div>
           <div class="col-lg-2 col-md-6">
             <div class="links">
-              <h5 class="text-light">About Us</h5>
+              <h5 class="text-light" data-key="About Us">About Us</h5>
               <ul class="list-unstyled lh-lg">
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="login.html"
+                    href="login.html" data-key="Sign in"
                     >Sign in</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="login.html"
+                    href="login.html" data-key="Register"
                     >Register</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="Contact.html"
+                    href="Contact.html" data-key="About Us"
                     >About Us</a
                   >
                 </li>
                 <li>
-                  <a class="text-white-50 text-decoration-none" href="">Blog</a>
+                  <a class="text-white-50 text-decoration-none" href="" data-key="Blog">Blog</a>
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="Contact.html"
+                    href="Contact.html" data-key="Contact us"
                     >Contact us</a
                   >
                 </li>
@@ -321,8 +325,8 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="contact">
-              <h5 class="text-light mb-3">Contact Us</h5>
-              <p class="mb-5 fs-6 lh-lg fw-bold">
+              <h5 class="text-light mb-3" data-key="Contact Us">Contact Us</h5>
+              <p class="mb-5 fs-6 lh-lg fw-bold" data-key="Get in touch with us via mail phone.We are waiting for your call or message">
                 Get in touch with us via mail phone.We are waiting for your call
                 or message
               </p>

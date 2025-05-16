@@ -23,14 +23,14 @@
       <form id="add_task_form" class="row g-3 w-100">
         <div class="input-container border border-primary border-3 rounded-4 shadow p-4 
         ">
-          <h2 class="text-center mb-4">New Task</h2>
+          <h2 class="text-center mb-4" data-key="New Task">New Task</h2>
           
           <div class="mb-3">
-            <label for="FarmName" class="form-label">Title </label>
+            <label for="FarmName" class="form-label" data-key="Title">Title </label>
             <input name="title" type="text" class="form-control" id="taskName" placeholder="Value">
           </div>
           <div class="mb-3">
-            <label for="Crops" class="form-label">Service</label>
+            <label for="Crops" class="form-label" data-key="Service">Service</label>
             <select name="service_id" class="form-select" id="Crops">
               <option value="1">NPK</option>
               <option value="2">Weed</option>
@@ -39,25 +39,25 @@
             </select>
           </div>
           <div class="mb-3">
-            <label  class="form-label">date</label>
+            <label  class="form-label" data-key="date">date</label>
             <select name="date_id" class="form-select" id="dates" >
               
 
             </select>
           </div>
           <div class="mb-3">
-            <label  class="form-label">farm</label>
+            <label  class="form-label" data-key="Farm">farm</label>
             <select name="farm_id" class="form-select" id="farms" >
               
 
             </select>
           </div>
           <div class="mb-3">
-            <label for="Notes" class="form-label">Notes</label>
+            <label for="Notes" class="form-label" data-key="Notes">Notes</label>
             <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
           </div>
         </div>
-        <button id="add" type="submit" class="btn btn-primary p-3">add</button>
+        <button id="add" type="submit" class="btn btn-primary p-3" data-key="add">add</button>
         </form>
       </div>
   </body>

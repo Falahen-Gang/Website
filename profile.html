@@ -40,28 +40,29 @@
                 class="nav-link p-2 p-lg-3"
                 aria-current="page"
                 href="Home.html"
+                data-key="Home"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3" href="Contact.html">Contact</a>
+              <a class="nav-link p-2 p-lg-3" href="Contact.html" data-key="Contact">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3" href="Services.html">Services</a>
+              <a class="nav-link p-2 p-lg-3" href="Services.html" data-key="Services">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 login" href="profile.html"
+              <a class="nav-link p-2 p-lg-3 login" href="profile.html" data-key="Profile"
                 >Profile</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 login" href="farm.html">Farm</a>
+              <a class="nav-link p-2 p-lg-3 login" href="farm.html" data-key="Farm">Farm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 logout" href="login.html">login</a>
+              <a class="nav-link p-2 p-lg-3 logout" href="login.html" data-key="login">login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link p-2 p-lg-3 login" href="logout.html">logout</a>
+              <a class="nav-link p-2 p-lg-3 login" href="logout.html" data-key="logout">logout</a>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -70,15 +71,16 @@
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                onclick="setlanguage('en')"
               >
                 En
               </a>
               <ul class="nav-item dropdown-menu">
-                <li><a class="dropdown-item" href="#">Ar</a></li>
+                <li><a class="dropdown-item" onclick="setlanguage('ar')">Ar</a></li>
                 <!-- <li><a class="dropdown-item" href="#">En</a></li> -->
               </ul>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a
                 class="nav-link p-2 p-lg-3"
                 style="cursor: pointer; background-color: red"
@@ -93,7 +95,7 @@
                 onclick="setlanguage('en')"
                 >english</a
               >
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -103,7 +105,7 @@
     <div class="profile-container mb-3">
       <section class="farms-section">
         <div class="section-header">
-          <h2>My Farms</h2>
+          <h2 data-key="My Farms">My Farms</h2>
           <button id="add-farm" class="add-button">+</button>
         </div>
         <ul class="farms-list" id="map-container"></ul>
@@ -111,17 +113,17 @@
 
       <section class="tasks-section">
         <div class="section-header">
-          <h2>My Tasks</h2>
+          <h2 data-key="My Tasks">My Tasks</h2>
           <button id="add-task" class="add-button">+</button>
         </div>
         <table class="tasks-table">
           <thead>
             <tr>
               <th></th>
-              <th>Service Type</th>
-              <th>Farm</th>
-              <th>Date</th>
-              <th>Status</th>
+              <th data-key="Service Type">Service Type</th>
+              <th data-key="Farm">Farm</th>
+              <th data-key="Date">Date</th>
+              <th data-key="Status">Status</th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -140,24 +142,25 @@
                 src="./Assets/IMG/Home/logo.png"
                 alt=""
               />
-              <p class="mb-5">
+              <p class="mb-5" data-key="Innovative robotic and AI-powered solutions that address the critical challenges facing modern agriculture">
                 Innovative robotic and AI-powered solutions that address the
                 critical challenges facing modern agriculture.
               </p>
               <div class="copyright">
-                Created By <span>Graphberry</span>
+                <!-- Created By <span>Graphberry</span> -->
                 <div>&copy; 2024 - <span>AGRI ROBO</span></div>
               </div>
             </div>
           </div>
           <div class="col-lg-2 col-md-6">
             <div class="links">
-              <h5 class="text-light">Explore</h5>
+              <h5 class="text-light" data-key="Explore">Explore</h5>
               <ul class="list-unstyled lh-lg">
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="Contact.html"
+                    href="Contact.html" 
+                    data-key="about"
                     >about</a
                   >
                 </li>
@@ -165,6 +168,7 @@
                   <a
                     class="text-white-50 text-decoration-none"
                     href="Services.html"
+                    data-key="Our Services"
                     >Our Services</a
                   >
                 </li>
@@ -172,23 +176,27 @@
                   <a
                     class="text-white-50 text-decoration-none"
                     href="profile.html"
+                    data-key="Profile"
                     >Profile</a
                   >
                 </li>
                 <li>
                   <a class="text-white-50 text-decoration-none" href="Farm.html"
-                    >farm</a
+                    data-key="farm"
+                  >farm</a
                   >
                 </li>
                 <li>
                   <a class="text-white-50 text-decoration-none" href=""
-                    >Our Project</a
+                    data-key="Our Project"
+                  >Our Project</a
                   >
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
                     href="Contact.html"
+                    data-key="contact"
                     >contact</a
                   >
                 </li>
@@ -197,12 +205,13 @@
           </div>
           <div class="col-lg-2 col-md-6">
             <div class="links">
-              <h5 class="text-light">About Us</h5>
+              <h5 class="text-light" data-key="About Us">About Us</h5>
               <ul class="list-unstyled lh-lg">
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
-                    href="login.html"
+                    href="login.html" 
+                    data-key="sign-in"
                     >Sign in</a
                   >
                 </li>
@@ -210,6 +219,7 @@
                   <a
                     class="text-white-50 text-decoration-none"
                     href="login.html"
+                    data-key="Register"
                     >Register</a
                   >
                 </li>
@@ -217,16 +227,18 @@
                   <a
                     class="text-white-50 text-decoration-none"
                     href="Contact.html"
+                    data-key="About Us"
                     >About Us</a
                   >
                 </li>
                 <li>
-                  <a class="text-white-50 text-decoration-none" href="">Blog</a>
+                  <a class="text-white-50 text-decoration-none" data-key="Blog" href="">Blog</a>
                 </li>
                 <li>
                   <a
                     class="text-white-50 text-decoration-none"
                     href="Contact.html"
+                    data-key="Contact us"
                     >Contact us</a
                   >
                 </li>
@@ -235,8 +247,8 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="contact">
-              <h5 class="text-light mb-3">Contact Us</h5>
-              <p class="mb-5 fs-6 lh-lg fw-bold">
+              <h5 class="text-light mb-3" data-key="Contact Us">Contact Us</h5>
+              <p class="mb-5 fs-6 lh-lg fw-bold" data-key="Get in touch with us via mail phone.We are waiting for your call or message">
                 Get in touch with us via mail phone.We are waiting for your call
                 or message
               </p>
