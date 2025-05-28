@@ -1,0 +1,200 @@
+.chart-container {
+    background-color: #ffffff;
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    padding: 1.5rem; /* p-6 */
+    margin-bottom: 2.5rem; /* mb-10 */
+    width: 100%; /* Responsive width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+        /* D3 specific styles for axes, text, etc. */
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #d1d5db; /* gray-300 */
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 10px;
+    fill: #6b7280; /* gray-600 */
+}
+
+.bar {
+    fill: steelblue;
+}
+
+.line {
+    fill: none;
+    stroke-width: 2px;
+}
+
+.dot {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+.legend {
+    font-size: 12px;
+    font-family: sans-serif;
+    fill: #555;
+}
+.legend rect {
+    stroke: #ccc;
+    stroke-width: 0.5px;
+}
+
+.char-tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    font-size: 12px;
+}
+
+
+
+/* Custom styles for the circle effect */
+.weed-circle-red {
+    position: absolute;
+    width: 30px; /* Size of the circle */
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 0, 0, 0.651); /* Semi-transparent red */
+    filter: blur(10px); /* Blur for the heatmap effect */
+    transform: translate(-50%, 0%); /* Center the circle on the x,y coordinates */
+    pointer-events: none; /* Allow clicks to pass through to elements below */
+    z-index: 100; /* Ensure it's above other content */
+}
+
+/* Custom styles for the circle effect */
+.weed-circle-yellow {
+    position: absolute;
+    width: 120px; /* Size of the circle */
+    height: 120px;
+    border-radius: 50%;
+    background-color: rgba(179, 197, 11, 0.877); /* Semi-transparent yello */
+    filter: blur(50px); /* Blur for the heatmap effect */
+    transform: translate(-50%, -25%); /* Center the circle on the x,y coordinates */
+    pointer-events: none; /* Allow clicks to pass through to elements below */
+    z-index: 100; /* Ensure it's above other content */
+}
+
+/* Ensure images within grid cells are positioned correctly */
+.grid-cell {
+    position: relative; /* Needed for absolute positioning of weed images and circles */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../IMG/Weeds/dirt_line_dirty.png'); /* Placeholder for dirt_line_dirty.png */
+    background-size: cover;
+    background-position: center;
+    margin: -0.5px; /* Add negative margin to prevent gaps on zoom */
+}
+
+/* Styles for the weed image */
+.weed-image {
+    position: absolute;
+    width: 50px; /* Appropriate size for the weed image */
+    height: 50px;
+    object-fit: contain; /* Ensure the image fits without distortion */
+    transform: translate(-50%, -50%); /* Center the image on the x,y-coordinates */
+    z-index: 101; /* Ensure it's above other content */
+}
+
+/* Tooltip styles */
+.weed-tooltip {
+    position: fixed; /* Use fixed to position relative to viewport */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.875rem; /* text-sm */
+    z-index: 1000; /* Ensure it's on top of other elements, but below weed images */
+    pointer-events: none; /* Allow clicks to pass through to elements below */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.2s ease-in-out; /* Smooth fade in/out */
+    max-width: 400px; /* Limit tooltip width */
+}
+
+.weed-tooltip.active {
+    opacity: 1; /* Show when active */
+}
+
+.tooltip-weed-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.tooltip-weed-item:last-child {
+    margin-bottom: 0;
+}
+
+.tooltip-weed-image {
+    width: 480px;
+    height: auto;
+    margin-right: 8px;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+/* Inner scroll area for hidden scrollbars */
+#inner-scroll-area {
+    width: 100%;
+    height: auto;
+    overflow: scroll; /* Enable scrolling */
+    cursor: grab; /* Default cursor for draggable area */
+    /* Hide scrollbar visuals for WebKit browsers */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+#inner-scroll-area.dragging {
+    cursor: grabbing; /* Cursor when dragging */
+}
+
+/* For WebKit browsers (Chrome, Safari) - make scrollbar completely transparent */
+#inner-scroll-area::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background-color: transparent;
+}
+#inner-scroll-area::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+/* For Firefox - make scrollbar completely transparent */
+#inner-scroll-area {
+    scrollbar-width: none; /* Hide scrollbar */
+}
+
+
+/* Vertical slider specific styles */
+#zoom-slider {
+    /* For WebKit browsers (Chrome, Safari) */
+    -webkit-appearance: slider-vertical;
+    writing-mode: bt-lr; /* For Firefox and other browsers */
+    height: 128px; /* Adjusted height for vertical slider */
+    width: 8px; /* Adjusted width for vertical slider */
+    margin-bottom: 8px; /* Space between slider and button */
+}
+
+/* Magnifier button specific styles */
+#magnifier-btn {
+    cursor: pointer;
+}
+
+/* Added for correct vertical slider direction */
+#zoom-slider-container {
+    flex-direction: column-reverse; /* Stacks children in reverse order */
+}

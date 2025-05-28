@@ -1,0 +1,14 @@
+/* start landing section */
+.landing-section {
+    background-image: url("../../IMG/contact/img.jpg");
+    background-size: cover;
+    background-position: center center;
+    /* This centers the image horizontally and vertically */
+    background-repeat: no-repeat;
+    /* Optional: prevents tiling */
+
+    height: 200px;
+    width: 100%;
+}
+
+/* End landing section */

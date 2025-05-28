@@ -1,0 +1,61 @@
+<!-- Start header -->
+<div class="header" id="header">
+  <div class="container">
+    <a href="#" class="logo"
+      ><img src="Assets/IMG/Home/2.png" alt="" />
+      <p>AGRI<br />BOT</p></a
+    >
+    <ul class="main-nav">
+      <li><a href="#articles">Home</a></li>
+      <li><a href="#gallery">services</a></li>
+      <li><a href="#features">About</a></li>
+      <li><a href="#Contact">Contact</a></li>
+      <li><a href="#login">login</a></li>
+    </ul>
+  </div>
+</div>
+<!-- End header -->
+<!-- start landing section -->
+<div class="landing">
+  <div class="intro-text">
+    <h1>WELCOME TO AGRIROBOT</h1>
+    <p>Smart Farming sloutions powwered by AI</p>
+  </div>
+</div>
+
+<!-- end landing section -->
+
+//////////////////////////////////////// /* Start variable */ :root {
+--main-color: #2196f3; --main-color-alt: #1787e0; --main-transition: 0.3s;
+--main-padding-top: 100px; --main-padding-bottom: 100px; --section-background:
+#ececec; } /* End variable */ /* Start global rules */ * { margin: 0; padding:
+0; box-sizing: border-box; } html { scroll-behavior: smooth; } body {
+font-family: 'Cairo', sans-serif; } ul { list-style: none; } a {
+text-decoration: none; } .container { padding-left: 15px; padding-right: 15px;
+margin: 0 auto; } /* small */ @media (min-width:768px) { .container { width:
+750px; } } /* meduim */ @media (min-width:992px) { .container { width: 970px; }
+} /* large */ @media (min-width:1200px) { .container { width: 1170px; } } /* End
+global rules */ /* Start header */ .header { background-color: #fff; position:
+relative; box-shadow: 0 0 10px #ddd; } .header .container { display: flex;
+justify-content: space-between; align-items: center; position: relative;
+flex-wrap: wrap; } .header .container .logo { font-size: 26px; font-weight:
+bold; color: var(--main-color); text-decoration: none; height: 52px; display:
+flex; justify-content: center; align-items: center; } .header .container .logo
+img { height: 100%; padding-bottom: 15px; } .header .container .logo p {
+font-size: 15px; color: #000; padding-right: 10px; } .header .container
+.main-nav { display: flex; } .header .container .main-nav>li>a { display: flex;
+justify-content: center; align-items: center; height: 52px; font-size: 15px;
+padding: 0 30px; color: #000; position: relative; transition:
+var(--main-transition); overflow: hidden; } .header .container
+.main-nav>li>a::before { content: ""; position: absolute; top: 0; left: -100%;
+width: 100%; background-color: #2196f3; height: 4px; transition:
+var(--main-transition); } .header .container .main-nav>li>a:hover {
+background-color: #fafafa; color: var(--main-color); } .header .container
+.main-nav>li>a:hover::before { left: 0; } /* End of header */ /* start landing
+section */ .landing { background-image: url("/Assets/IMG/Home/1.png");
+background-size: cover; height: calc(100vh - 52px); width: 100%; /* 52px is
+height of header*/ display: flex; justify-content: center; } .landing
+.intro-text { width: 320px; } .landing .intro-text h1 { margin: 10px; color:
+var(--main-color); font-size: 20px; font-weight: bold; text-transform:
+capitalize; } .landing .intro-text p { font-size: 20px; font-weight: 400;
+line-height: 1.8; } /* end landing section */
