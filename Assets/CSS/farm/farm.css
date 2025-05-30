@@ -232,42 +232,6 @@
     margin-top: 20px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    main {
-        flex-direction: column;
-    }
-
-    .farm-details {
-        width: 100%;
-        margin: 10px auto;
-    }
-
-    .tasks-section-wrapper {
-        width: 100%;
-        order: 2;
-        /* Move tasks section below farm details */
-        margin-top: 20px;
-    }
-
-    .task-details {
-        width: 100%;
-        margin-top: 20px;
-        order: 3;
-        /* Move task details below tasks */
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
 
 #main-container {
     padding-bottom: 50px;
@@ -503,4 +467,23 @@ img {
             height: 30px;
             line-height: 20px;
     } */
+
+    .farm-details {
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    .tasks-section-wrapper {
+        width: 100%;
+        order: 2;
+        /* Move tasks section below farm details */
+        margin-top: 20px;
+    }
+
+    .task-details {
+        width: 100%;
+        margin-top: 20px;
+        order: 3;
+        /* Move task details below tasks */
+    }
 }
