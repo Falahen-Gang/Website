@@ -1,0 +1,31 @@
+const locationData = {
+  "Egypt": [
+    "Alexandria",
+    "Aswan",
+    "Assiut",
+    "Beheira",
+    "Beni Suef",
+    "Cairo",
+    "Dakahlia",
+    "Damietta",
+    "Fayoum",
+    "Gharbia",
+    "Giza",
+    "Ismailia",
+    "Kafr El Sheikh",
+    "Luxor",
+    "Matrouh",
+    "Minya",
+    "Monufia",
+    "New Valley",
+    "North Sinai",
+    "Port Said",
+    "Qaliubiya",
+    "Qena",
+    "Red Sea",
+    "Sharkia",
+    "Sohag",
+    "South Sinai",
+    "Suez"
+  ]
+};
