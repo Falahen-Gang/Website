@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Log Response
       console.log(data)
       // TODO Create Diseases Chart
-      generateHeatmap(data.data);
+      generateHeatmap(data.data, false);
     })
     .catch(error => console.error('Error:', error));
   }
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Log Response
       console.log(data)
       // TODO Create Diseases Chart
-      generateHeatmap(data.data);
+      generateHeatmap(data.data, true);
     })
     .catch(error => console.error('Error:', error));
   }
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function generateNPK(data){
         // Create NPK per distance chart
         // Create Average NPK per line Chart
-        taskDetailsView.innerHTML += `
+        taskDetailsView.querySelector(".details-content").innerHTML += `
     <div class="chart-container">
         <h2 class="text-2xl font-semibold text-gray-700">AVG. NPK Per Distance</h2>
         <svg id="multiLineChartSVG" width="100%" height="400" viewBox="0 0 800 400"></svg>
@@ -579,18 +579,20 @@ document.addEventListener('DOMContentLoaded', () => {
      * Generates the grid based on current row and column values.
      * Clears any existing grid cells and populates the cell list dropdown.
      */
-    function generateHeatmap(data){
+    function generateHeatmap(data, weed){
         const numRows = Math.ceil(parseFloat(data[0].task.farms.line_length) / 0.66)
         const numCols    = Math.ceil(parseFloat(data[0].task.farms.number_of_lines))
 
         console.log(numCols, numRows)
 
         // Create Heat Map Section
-
-        taskDetailsView.innerHTML += `
+        taskDetailsView.querySelector(".details-content").innerHTML += `
         <div class="chart-container">
+                <h2 class="text-2xl font-semibold text-gray-700">Count of Found ${weed? "Weeds" : "Diseases"}</h2>
             <svg id="barChartSVG" width="100%" height="400" viewBox="0 0 800 400"></svg>
         </div>
+        `
+        taskDetailsView.innerHTML += `
         <div class="mt-4">
         <div id="zoom-scroll-wrapper" class="relative w-full h-[400px] border border-gray-300 rounded-lg mb-8" style="overflow: hidden;">
             <div id="inner-scroll-area" style="width: 100%; height: 100%;">
@@ -601,7 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div id="magnifier-controls" class="absolute bottom-4 right-4 flex flex-col items-center z-50">
                 <div id="zoom-slider-container" class="flex flex-col items-center bg-gray-700 p-2 rounded-lg shadow-lg mb-2 hidden">
                     <span class="text-white text-xs mb-2">Zoom</span>
-                    <input type="range" id="zoom-slider" min="100" max="500" value="100"
+                    <input type="range" id="zoom-slider" min="100" max="200" value="100"
                         class="bg-indigo-100 rounded-lg appearance-none cursor-pointer range-lg">
                 </div>
                 <button id="magnifier-btn" class="bg-indigo-600 p-3 rounded-full shadow-lg transition-opacity duration-300 opacity-30 hover:opacity-100">
@@ -633,7 +635,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(tooltip);
 
 
-        let cellBaseSizePx = 130; // Base size for each cell in pixels
+        let cellBaseSizePx = 140; // Base size for each cell in pixels
 
         // Variables for drag-to-scroll functionality
         let isDragging = false;
@@ -747,15 +749,22 @@ function addWeed(weedName, x, y, cellId) {
         const weedsInCell = cellWeeds[cellId];
 
         if (weedsInCell && weedsInCell.length > 0) {
-            let tooltipContent = `<div class="font-bold mb-2">Cell: R${parseInt(event.currentTarget.dataset.row) + 1}, C${parseInt(event.currentTarget.dataset.col) + 1}</div>`;
-            weedsInCell.forEach((weed, index) => {
-                tooltipContent += `
-                    <div class="tooltip-weed-item">
-                        <img src="${data[index].img}" alt="${weed.name}" class="tooltip-weed-image">
-                        <span>${weed.name.replace(/_/g, ' ')}</span>
-                    </div>
-                `;
-            });
+            let tooltipContent = `<div class="font-bold mb-2"> Line ${(parseInt(event.currentTarget.dataset.row) + 1)}, Distance ~${Math.round((parseInt(event.currentTarget.dataset.col) + 1) * 0.66)}m</div>`;
+            tooltipContent += `
+                <div class="tooltip-weed-item">
+                    <img src="${data[0].img}" alt="${weedsInCell[0].name}" class="tooltip-weed-image">
+                    <span>${weedsInCell[0].name.replace(/_/g, ' ')}</span>
+                </div>
+            `;
+        
+            // weedsInCell.forEach((weed, index) => {
+            //     tooltipContent += `
+            //         <div class="tooltip-weed-item">
+            //             <img src="${data[index].img}" alt="${weed.name}" class="tooltip-weed-image">
+            //             <span>${weed.name.replace(/_/g, ' ')}</span>
+            //         </div>
+            //     `;
+            // });
             tooltip.innerHTML = tooltipContent;
             tooltip.classList.add('active'); // Show the tooltip
         }
@@ -775,11 +784,11 @@ function addWeed(weedName, x, y, cellId) {
     function handleCellMouseMove(event) {
         // Position the tooltip near the cursor
         if(event.clientX > (window.innerWidth * 0.7))
-            tooltip.style.left = `${event.clientX - 15}px`; // 15px offset to the right
+            tooltip.style.left = `${event.clientX - 340}px`; // 15px offset to the right
         else
             tooltip.style.left = `${event.clientX + 15}px`; // 15px offset to the right
         if(event.clientY > (window.innerHeight * 0.6))
-            tooltip.style.top = `${event.clientY - 100}px`; // 15px offset to the right
+            tooltip.style.top = `${event.clientY - 200}px`; // 15px offset to the right
         else
             tooltip.style.top = `${event.clientY + 15}px`; // 15px offset to the right
     }
@@ -970,7 +979,7 @@ function addWeed(weedName, x, y, cellId) {
                     chartTooltip.transition()
                         .duration(200)
                         .style("opacity", .9);
-                    chartTooltip.html(`Disease: ${d.disease}<br/>Count: ${d.count.toLocaleString()}`)
+                    chartTooltip.html(`${weed? "Weed":"Disease"}: ${d.disease}<br/>Count: ${d.count.toLocaleString()}`)
                         .style("left", (event.pageX + 10) + "px")
                         .style("top", (event.pageY - 28) + "px");
                 })
@@ -1023,7 +1032,7 @@ fetch(api_farm, options_profile)
     {
         // Add Farm Details
         farmDetails.innerHTML = `
-          <h3>Farm Name ${farm.name}</h3>
+          <h3 data-key="FarmName">Farm Name ${farm.name}</h3>
           <p>Location <span id="farm-location">${farm.location}</span></p>
           <p>Size <span id="farm-size">${farm.area}</span></p>
           <p>Crops <span id="farm-crops">Tomato</span></p>

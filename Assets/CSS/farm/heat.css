@@ -1,7 +1,4 @@
 .chart-container {
-    background-color: #ffffff;
-    border-radius: 0.75rem; /* rounded-xl */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
     padding: 1.5rem; /* p-6 */
     margin-bottom: 2.5rem; /* mb-10 */
     width: 100%; /* Responsive width */
@@ -142,7 +139,7 @@
 }
 
 .tooltip-weed-image {
-    width: 480px;
+    width: 80%;
     height: auto;
     margin-right: 8px;
     border-radius: 4px;

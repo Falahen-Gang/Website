@@ -70,9 +70,6 @@
 
 
 
-
-
-
 .farm-details {
     flex-basis: 100%;
     /* Full width initially, then adjusted */
@@ -153,6 +150,7 @@
 
 .tasks-table {
     width: 100%;
+    overflow-wrap: break-word;
     border-collapse: separate;
     border-spacing: 0 10px;
     box-shadow: none;
@@ -247,12 +245,12 @@
 }
 
 #tasks-list-container {
-    width: 40%;
+    width: 50%;
     height: 100%;
     background-color: #ffffff;
     padding: 20px;
     box-sizing: border-box;
-    overflow-y: visible;
+    overflow-y: scroll;
     transition: width 0.4s ease, padding 0.4s ease, opacity 0.4s ease;
     position: relative; /* For the toggle button positioning */
     border-right: 1px solid #e0e0e0;
@@ -266,7 +264,7 @@
 }
 
 #task-details-view {
-    width: 60%;
+    width: 50%;
     height: 100%;
     margin-left: 15px;
     box-sizing: border-box;
@@ -282,6 +280,11 @@
     width: 100%;
     padding: 0;
 }
+
+#tasks-container.collapsed ~ #add-task{
+    margin-top: 15px;
+}
+
 
 .main-title {
     position: fixed; /* Keep title at the top */
@@ -302,7 +305,7 @@
     position: absolute;
     top: 50%;
     /* When tasks list is visible, position button's right edge at 40% mark */
-    left: 41.5%;
+    left: 51%;
     transform: translateY(-50%) translateX(-100%); /* Shifts button left by its full width */
     z-index: 50;
     background-color: #4baf47;
@@ -324,7 +327,6 @@
 #tasks-list-container.collapsed ~ #toggle-tasks-visibility-btn {
     left: -30px; /* Move to the far left of app-container */
     transform: translateY(-50%) rotate(360deg); /* Rotate the arrow */
-    background-color: #4baf47;
 }
 
 #toggle-tasks-visibility-btn:hover {
@@ -335,11 +337,149 @@
 .task-item:hover { background-color: #e9ecef; }
 
 
-img {
-    max-width: 40px; /* Slightly smaller images in table */
-    height: auto;
-    border-radius: 4px;
-    vertical-align: middle;
+/* For: <div class="mt-4"> */
+.mt-4 {
+  margin-top: 1rem; /* 16px */
+}
+
+/* For: <div id="zoom-scroll-wrapper" class="relative w-full h-[400px] border border-gray-300 rounded-lg mb-8" style="overflow: hidden;"> */
+#zoom-scroll-wrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-width: 1px;
+  border-style: solid; /* Added for explicitness, Tailwind's 'border' implies solid */
+  border-color: rgb(209 213 219); /* gray-300 */
+  border-radius: 0.5rem; /* rounded-lg */
+  margin-bottom: 2rem; /* mb-8 (32px) */
+  /* overflow: hidden; is already an inline style */
+}
+
+/* For: <div id="map-container" class="transform origin-top-left" style="display: grid;"> */
+#map-container {
+  transform-origin: top left;
+  /* The 'transform' class itself in Tailwind usually sets up CSS variables for transforms.
+     Actual transform functions (scale, rotate, translate) would be applied by other classes
+     or JavaScript. If you are applying transforms via JavaScript, you might not need
+     anything specific for 'transform' here unless other Tailwind transform utilities
+     were also present (e.g., scale-105). */
+  /* display: grid; is already an inline style */
+}
+
+/* For: <div id="magnifier-controls" class="absolute bottom-4 right-4 flex flex-col items-center z-50"> */
+#magnifier-controls {
+  position: absolute;
+  bottom: 1rem; /* 16px */
+  right: 1rem; /* 16px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 50;
+}
+
+/* For: <div id="zoom-slider-container" class="flex flex-col items-center bg-gray-700 p-2 rounded-lg shadow-lg mb-2 hidden"> */
+#zoom-slider-container {
+  display: flex; /* Overridden by 'hidden' if it remains, but good to have if 'hidden' is removed dynamically */
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(55 65 81); /* bg-gray-700 */
+  padding: 0.5rem; /* p-2 (8px) */
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg (adjust if using a different version of Tailwind, this is a common default) */
+  margin-bottom: 0.5rem; /* mb-2 (8px) */
+  /* display: none; /* for 'hidden' - you can apply this directly or via a class */
+  
+}
+
+/* If you want to keep the 'hidden' class functional: */
+.hidden {
+  display: none;
+}
+
+/* For: <span class="text-white text-xs mb-2">Zoom</span> */
+#zoom-slider-container .text-white { /* Targeting span within the container for specificity */
+  color: rgb(255 255 255);
+}
+
+#zoom-slider-container .text-xs {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+}
+
+#zoom-slider-container .mb-2 { /* Specificity for the span's margin */
+   margin-bottom: 0.5rem; /* 8px */
+}
+
+
+/* For: <input type="range" id="zoom-slider" ... class="bg-indigo-100 rounded-lg appearance-none cursor-pointer range-lg"> */
+#zoom-slider {
+  background-color: rgb(224 231 255); /* bg-indigo-100 */
+  border-radius: 0.5rem; /* rounded-lg */
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  /* 'range-lg' is not a standard Tailwind class.
+     You might need to add custom styles for its height/width or thumb/track appearance.
+     For example, to give it some height: */
+  height: 0.5rem; /* Example height, adjust as needed */
+  width: 100%; /* Example width, adjust as needed */
+}
+
+/* Styling for range input's thumb and track (example, browser-specific) */
+#zoom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.25rem; /* Example */
+  height: 1.25rem; /* Example */
+  background: rgb(79 70 229); /* Example: indigo-600 */
+  cursor: pointer;
+  border-radius: 9999px;
+}
+
+#zoom-slider::-moz-range-thumb {
+  width: 1.25rem; /* Example */
+  height: 1.25rem; /* Example */
+  background: rgb(79 70 229); /* Example: indigo-600 */
+  cursor: pointer;
+  border-radius: 9999px;
+  border: none;
+}
+
+/* For: <button id="magnifier-btn" class="bg-indigo-600 p-3 rounded-full shadow-lg transition-opacity duration-300 opacity-30 hover:opacity-100"> */
+#magnifier-btn {
+  background-color: rgb(79 70 229); /* bg-indigo-600 */
+  padding: 0.75rem; /* p-3 (12px) */
+  border-radius: 9999px; /* rounded-full */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  transition-property: opacity;
+  transition-duration: 300ms;
+  opacity: 0.3;
+  border: none; /* Good practice for buttons if not otherwise styled */
+  cursor: pointer; /* Good practice for buttons */
+}
+
+#magnifier-btn:hover {
+  opacity: 1;
+}
+
+/* For: <svg ... class="w-6 h-6 text-white"> (inside magnifier-btn) */
+#magnifier-btn .w-6 {
+  width: 1.5rem; /* 24px */
+}
+
+#magnifier-btn .h-6 {
+  height: 1.5rem; /* 24px */
+}
+
+#magnifier-btn .text-white { /* SVG's stroke is set to currentColor, so this changes the icon color */
+  color: rgb(255 255 255);
+}
+
+/* If the SVG's stroke is meant to be white, and not inherited text color: */
+#magnifier-btn svg {
+  stroke: rgb(255 255 255); /* Ensures the SVG icon itself is white */
 }
 
 /* Task Details View Styling */
@@ -441,6 +581,7 @@ img {
         height: auto;
         min-height: 50vh; /* Ensure it takes up reasonable space */
         padding: 20px;
+        margin: 0;
     }
     
     /* Mobile adjustments for the button when it's a sibling */
@@ -485,5 +626,21 @@ img {
         margin-top: 20px;
         order: 3;
         /* Move task details below tasks */
+    }
+
+    #tasks-list-container{
+        margin: 0px;
+    }
+
+    #tasks-list-container td:nth-child(4), #tasks-list-container td:nth-child(1), #tasks-list-container td:nth-child(2){
+        display: none;
+    }
+
+    #tasks-list-container th:nth-child(4), #tasks-list-container th:nth-child(1), #tasks-list-container th:nth-child(2){
+        display: none;
+    }
+
+    #tasks-list-container img{
+        display: none;
     }
 }
