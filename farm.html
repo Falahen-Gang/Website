@@ -17,11 +17,17 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-gauge@0.2.0/dist/chartjs-plugin-gauge.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     />
     <link rel="stylesheet" href="./Assets/CSS/Farm/Farm.css" />
+
+    <link rel="stylesheet" href="./Assets/CSS/farm/heat.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
       .gauge-container {
         width: 150px;
@@ -131,302 +137,85 @@
           ></iframe>
         </div>
         <div class="farm-info">
-          <h3>Farm Name</h3>
-          <p>Location <span id="farm-location"></span></p>
-          <p>Size <span id="farm-size"></span></p>
-          <p>Crops <span id="farm-crops"></span></p>
         </div>
       </section>
 
-      <div class="row">
-        <div class="col-md-5">
-          <div class="tasks-section-wrapper">
-            <div class="section-header">
-              <h4>My Farm Tasks</h4>
-              <button id="add-task" class="add-button">+</button>
-            </div>
-            <table class="tasks-table">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Service Type</th>
-                  <th>Date</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="task-item">
-                  <td>
-                    <img
-                      src="./Assets/IMG/farm/Weed Detection and Removal  with robotics__.jpg"
-                      alt="Task 1"
-                      style="width: 30px; height: 30px"
-                    />
-                  </td>
-                  <td>Sustainable weed removal</td>
-                  <td>15 Mar 2025</td>
-                  <td><span class="badge bg-warning">Pending</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="./Assets/IMG/farm/Weed Detection and Removal  with robotics__.jpg"
-                      alt="Task 2"
-                      style="width: 30px; height: 30px"
-                    />
-                  </td>
-                  <td>Sustainable weed removal</td>
-                  <td>16 Mar 2025</td>
-                  <td><span class="badge bg-info">In progress</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="./Assets/IMG/farm/Weed Detection and Removal  with robotics__.jpg"
-                      alt="Task 3"
-                      style="width: 30px; height: 30px"
-                    />
-                  </td>
-                  <td>Sustainable weed removal</td>
-                  <td>17 Mar 2025</td>
-                  <td><span class="badge bg-success">Completed</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+      <div id='main-container' class="row">
+
+
+
+
+
+
+
+
+
+    <div id="app-container">
+        <div id="tasks-list-container">
+
+
+
+
+        <div class="section-header">
+          <h2 data-key="My Tasks">My Tasks</h2>
+          <button id="add-task" class="add-button">+</button>
         </div>
-        <div class="col-md-7">
-          <section class="task-details">
-            <h4>Current Task Details</h4>
-            <div class="npk-measurements">
-              <h5>NPK Measurements</h5>
-              <div class="gauge-charts">
-                <div class="gauge-chart">
-                  <canvas id="nitrogenGauge" class="gauge-container"></canvas>
-                  <p>N (10 ppm)</p>
-                </div>
-                <div class="gauge-chart">
-                  <canvas id="phosphorusGauge" class="gauge-container"></canvas>
-                  <p>P (20 ppm)</p>
-                </div>
-                <div class="gauge-chart">
-                  <canvas id="potassiumGauge" class="gauge-container"></canvas>
-                  <p>K (10 ppm)</p>
-                </div>
-                <div class="suggestions">
-                  <h6>Suggestions</h6>
-                  <p>May 3, 2025</p>
-                </div>
-              </div>
-              <div class="npk-bar-container">
-                <h4>NPK Levels Over Time</h4>
-                <canvas id="npkBarChart" class="img-fluid"></canvas>
-              </div>
-            </div>
-            <div class="card bg-light">
-              <div class="card-body">
-                <h3 class="card-title">Weed removal</h3>
-                <div class="row mb-3">
-                  <div class="col-md-6">
-                    <h4>Removal Process Status</h4>
-                    <p class="text-muted">status of process</p>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="img-container">
-                      <img
-                        src="./Assets/IMG/Services/service-05.webp.png"
-                        alt="Weed Removal"
-                        class="img-fluid rounded"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="mt-4">
-                  <h4>Suggestions</h4>
-                  <p class="text-muted">This is a subtitle</p>
-                </div>
-              </div>
-            </div>
+<table class="tasks-table">
+  <thead>
+    <tr>
+      <th></th>
+        <th data-key="Service Type">Service Type</th>
+        <th data-key="Title">Title</th>
+        <th data-key="Date">Date</th>
+        <th data-key="Status">Status</th>
+    </tr>
+  </thead>
+  <tbody id="tasks-body"></tbody>
+</table>
 
-            <div class="crop-health-monitoring mt-4">
-              <h5>Crop Health Monitoring</h5>
-              <p>Current status of crop:</p>
-              <p>The following was found:</p>
 
-              <ul class="nav nav-tabs" id="diseaseTabs" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button
-                    class="nav-link active"
-                    id="disease1-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#disease1"
-                    type="button"
-                    role="tab"
-                    aria-controls="disease1"
-                    aria-selected="true"
-                  >
-                    Disease 1
-                  </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button
-                    class="nav-link"
-                    id="disease2-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#disease2"
-                    type="button"
-                    role="tab"
-                    aria-controls="disease2"
-                    aria-selected="false"
-                  >
-                    Disease 2
-                  </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button
-                    class="nav-link"
-                    id="disease3-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#disease3"
-                    type="button"
-                    role="tab"
-                    aria-controls="disease3"
-                    aria-selected="false"
-                  >
-                    Disease 3
-                  </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button
-                    class="nav-link"
-                    id="disease4-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#disease4"
-                    type="button"
-                    role="tab"
-                    aria-controls="disease4"
-                    aria-selected="false"
-                  >
-                    Disease 4
-                  </button>
-                </li>
-              </ul>
 
-              <div class="tab-content mt-2" id="diseaseTabContent">
-                <div
-                  class="tab-pane fade show active"
-                  id="disease1"
-                  role="tabpanel"
-                  aria-labelledby="disease1-tab"
-                >
-                  <h4>Disease 1</h4>
-                  <div
-                    id="disease1-map"
-                    style="height: 200px; width: 100%; border: 1px solid #ccc"
-                  ></div>
-                  <p><strong>Disease Name:</strong> Early Blight</p>
-                  <p>
-                    <strong>Location:</strong> Lower leaves, spreading upwards.
-                  </p>
-                  <p>
-                    <strong>Spread Area:</strong> Increasing rapidly in humid
-                    conditions.
-                  </p>
-                  <p>
-                    <strong>Side Effects:</strong> Leaf spots, yellowing,
-                    defoliation.
-                  </p>
-                  <p>
-                    <strong>Suggestions / Treatment:</strong> Apply fungicide,
-                    improve air circulation.
-                  </p>
-                </div>
-                <div
-                  class="tab-pane fade"
-                  id="disease2"
-                  role="tabpanel"
-                  aria-labelledby="disease2-tab"
-                >
-                  <h4>Disease 2</h4>
-                  <div
-                    id="disease2-map"
-                    style="height: 200px; width: 100%; border: 1px solid #ccc"
-                  ></div>
-                  <p><strong>Disease Name:</strong> Bacterial Spot</p>
-                  <p>
-                    <strong>Location:</strong> Small spots on leaves and fruits.
-                  </p>
-                  <p>
-                    <strong>Spread Area:</strong> Favored by warm, wet weather.
-                  </p>
-                  <p>
-                    <strong>Side Effects:</strong> Leaf lesions, fruit spots.
-                  </p>
-                  <p>
-                    <strong>Suggestions / Treatment:</strong> Copper-based
-                    fungicides, avoid overhead irrigation.
-                  </p>
-                </div>
-                <div
-                  class="tab-pane fade"
-                  id="disease3"
-                  role="tabpanel"
-                  aria-labelledby="disease3-tab"
-                >
-                  <h4>Disease 3</h4>
-                  <div
-                    id="disease3-map"
-                    style="height: 200px; width: 100%; border: 1px solid #ccc"
-                  ></div>
-                  <p><strong>Disease Name:</strong> Late Blight</p>
-                  <p>
-                    <strong>Location:</strong> Water-soaked lesions on leaves
-                    and stems.
-                  </p>
-                  <p>
-                    <strong>Spread Area:</strong> Rapid in cool, wet conditions.
-                  </p>
-                  <p>
-                    <strong>Side Effects:</strong> Rapid plant death, fruit rot.
-                  </p>
-                  <p>
-                    <strong>Suggestions / Treatment:</strong> Apply fungicide
-                    immediately, remove infected plants.
-                  </p>
-                </div>
-                <div
-                  class="tab-pane fade"
-                  id="disease4"
-                  role="tabpanel"
-                  aria-labelledby="disease4-tab"
-                >
-                  <h4>Disease 4</h4>
-                  <div
-                    id="disease4-map"
-                    style="height: 200px; width: 100%; border: 1px solid #ccc"
-                  ></div>
-                  <p><strong>Disease Name:</strong> Leaf Mold</p>
-                  <p>
-                    <strong>Location:</strong> Yellow spots on upper leaves,
-                    gray mold underneath.
-                  </p>
-                  <p>
-                    <strong>Spread Area:</strong> High humidity, poor air
-                    circulation.
-                  </p>
-                  <p>
-                    <strong>Side Effects:</strong> Leaf drop, reduced fruit set.
-                  </p>
-                  <p>
-                    <strong>Suggestions / Treatment:</strong> Improve air
-                    circulation, reduce humidity, fungicides.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
+
+
+
+
+
         </div>
+        <button id="toggle-tasks-visibility-btn" title="Toggle Task List">&lt;</button>
+
+        <div id="task-details-view">
+            <div class="details-placeholder">Select a completed task to view its details.</div>
+        </div>
+    </div>
+
+    <div id="customMessageBox" class="message-box-overlay">
+        <div class="message-box-content">
+            <h2 id="messageBoxTitle">Notification</h2>
+            <p id="messageBoxText">Message goes here.</p>
+            <button id="messageBoxButton">OK</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
       </div>
+
+    <div id="customMessageBox" class="message-box-overlay">
+        <div class="message-box-content">
+            <h2 id="messageBoxTitle">Notification</h2>
+            <p id="messageBoxText">Message goes here.</p>
+            <button id="messageBoxButton">OK</button>
+        </div>
+    </div>
+
+
+
+      </div>
+
     </main>
     <!-- End Farm section -->
     <!-- start footer -->
@@ -581,6 +370,9 @@
     <!-- end footer -->
     <script src="./Assets/JS/data.js"></script>
     <script src="./Assets/JS/farm/farm.js"></script>
+    <script src="./Assets/JS/farm/edit.js"></script>
+    <script src="./Assets/JS/farm.js"></script>
+    <script src="./Assets/JS/farm/heat.js"></script>
     <script src="./Assets/JS/main.js"></script>
     <script src="./Assets/JS/check.js"></script>
   </body>

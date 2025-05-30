@@ -28,10 +28,12 @@ fetch(api_profile, options_profile)
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
-        <div class="farm-details">
-          <p><strong>${farm.name}</strong></p>
-          <p>Tomatoes</p>
-        </div>
+        <a class="nav-link p-2 p-lg-3" href="Farm.html">
+          <div class="farm-details" onclick="${localStorage.setItem('farmId',farm.id)}')">
+            <p><strong>${farm.name}</strong></p>
+            <p>Tomatoes</p>
+          </div>
+        </a>
       `;
 
       farmsList.appendChild(li);

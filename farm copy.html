@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farm Details - Agribot</title>
+    <link rel="stylesheet" href="./Assets/CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="./Assets/CSS/all.min.css" />
+    <link rel="stylesheet" href="./Assets/CSS/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Handjet:wght@700&family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./Assets/CSS/main.css" />
+    <link rel="stylesheet" href="./Assets/CSS/farm/Farm.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-gauge@0.2.0/dist/chartjs-plugin-gauge.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="./Assets/CSS/Farm/Farm.css" />
+
+    <link rel="stylesheet" href="./Assets/CSS/farm/heat.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .gauge-container {
+        width: 150px;
+        height: 120px;
+        margin: 0 auto;
+      }
+      .npk-bar-container {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scroll"></div>
+    <span class="up">up</span>
+    <!-- start nav -->
+    <nav class="navbar navbar-expand-lg bg-light sticky-top">
+      <div class="container">
+        <img style="height: 50px" src="./Assets/IMG/Home/logo.png" alt="" />
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3"
+                aria-current="page"
+                href="Home.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3" href="Contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3" href="Services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3 login" href="profile.html"
+                >Profile</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3 login" href="farm.html">Farm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3 logout" href="login.html">login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3 login" href="logout.html">logout</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link nav-link p-2 p-lg-3 dropdown-toggle"
+                onclick="setlanguage('en')"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                En
+              </a>
+              <ul class="nav-item dropdown-menu">
+                <li><a class="dropdown-item" onclick="setlanguage('ar')">Ar</a></li>
+                <!-- <li><a class="dropdown-item" href="#">En</a></li> -->
+              </ul>
+            </li>
+            <!-- <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3"
+                style="cursor: pointer; background-color: red"
+                onclick="setlanguage('ar')"
+                >عربي</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link p-2 p-lg-3"
+                style="cursor: pointer; background-color: blue"
+                onclick="setlanguage('en')"
+                >english</a
+              >
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end nav -->
+    <!-- Start farm section -->
+    <main class="container mt-3 mb-3">
+      <section class="farm-details">
+        <div class="farm-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3416.465970104768!2d30.949456!3d31.09677850000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f7ac7ba77647ed%3A0xcd75a051c77224b6!2sFaculty%20of%20Engineering%2C%20Kafrelsheikh%20University!5e0!3m2!1sen!2seg!4v1741398316302!5m2!1sen!2seg"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <div class="farm-info">
+          <h3>Farm Name</h3>
+          <p>Location <span id="farm-location"></span></p>
+          <p>Size <span id="farm-size"></span></p>
+          <p>Crops <span id="farm-crops"></span></p>
+        </div>
+      </section>
+
+      <div id='main-container' class="row">
+        <!-- <div class="col-md-5"> -->
+
+
+<div id="tasks-container" class="tasks-container col-md-5">
+    <div class="tasks-section-wrapper" id="tasks-section">
+        <div class="section-header">
+            <span>Tasks</span>
+        </div>
+      <section class="tasks-section">
+        <div class="section-header">
+          <h2 data-key="My Tasks">My Tasks</h2>
+          <button id="add-task" class="add-button">+</button>
+        </div>
+<table class="tasks-table">
+  <thead>
+    <tr>
+      <th></th>
+        <th data-key="Service Type">Service Type</th>
+        <th data-key="Title">Title</th>
+        <th data-key="Date">Date</th>
+        <th data-key="Status">Status</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+      </section>
+    </div>
+    <div id="tasks-arrow">
+        <span id="arrow-icon">&#8594;</span>
+    </div>
+</div>
+
+
+<!-- <div id="tasks-container" style="position: absolute; left: 0; top: 60px; height: calc(100vh - 60px); z-index: 100;">
+    <div id="tasks-arrow" style="position: absolute; right: -24px; top: 50%; transform: translateY(-50%); background: #4BAF47; color: white; border-radius: 0 4px 4px 0; width: 24px; height: 48px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 101;">
+        <span id="arrow-icon">&#8594;</span>
+    </div>
+
+          <div class="tasks-section-wrapper">
+             <div class="section-header">
+              <h4>My Farm Tasks</h4>
+              <button id="add-task" class="add-button">+</button>
+            </div>
+            <table class="tasks-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Service Type</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="task-item">
+                  <td>
+                    <img
+                      src="./Assets/IMG/farm/Weed Detection and Removal  with robotics__.jpg"
+                      alt="Task 1"
+                      style="width: 30px; height: 30px"
+                    />
+                  </td>
+                  <td>Sustainable weed removal</td>
+                  <td>15 Mar 2025</td>
+                  <td><span class="badge bg-warning">Pending</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="./Assets/IMG/farm/Weed Detection and Removal  with robotics__.jpg"
+                      alt="Task 2"
+                      style="width: 30px; height: 30px"
+                    />
+                  </td>
+                  <td>Sustainable weed removal</td>
+                  <td>16 Mar 2025</td>
+                  <td><span class="badge bg-info">In progress</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <img
+                      src="./Assets/IMG/farm/Weed Detection and Removal  with robotics__.jpg"
+                      alt="Task 3"
+                      style="width: 30px; height: 30px"
+                    />
+                  </td>
+                  <td>Sustainable weed removal</td>
+                  <td>17 Mar 2025</td>
+                  <td><span class="badge bg-success">Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div> -->
+        <div id="graphs-container" class="col-md-7">
+          <section class="task-details">
+            <h4>Current Task Details</h4>
+            <div class="npk-measurements">
+              <h5>NPK Measurements</h5>
+              <div class="gauge-charts">
+                <div class="gauge-chart">
+                  <canvas id="nitrogenGauge" class="gauge-container"></canvas>
+                  <p>N (10 ppm)</p>
+                </div>
+                <div class="gauge-chart">
+                  <canvas id="phosphorusGauge" class="gauge-container"></canvas>
+                  <p>P (20 ppm)</p>
+                </div>
+                <div class="gauge-chart">
+                  <canvas id="potassiumGauge" class="gauge-container"></canvas>
+                  <p>K (10 ppm)</p>
+                </div>
+                <div class="suggestions">
+                  <h6>Suggestions</h6>
+                  <p>May 3, 2025</p>
+                </div>
+              </div>
+              <div class="npk-bar-container">
+                <h4>NPK Levels Over Time</h4>
+                <canvas id="npkBarChart" class="img-fluid"></canvas>
+              </div>
+            </div>
+            <div class="card bg-light">
+              <div class="card-body">
+                <h3 class="card-title">Weed removal</h3>
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <h4>Removal Process Status</h4>
+                    <p class="text-muted">status of process</p>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="img-container">
+                      <img
+                        src="./Assets/IMG/Services/service-05.webp.png"
+                        alt="Weed Removal"
+                        class="img-fluid rounded"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- Start of Diseases Heat Map -->
+                <div class="mt-4">
+                    <div id="zoom-scroll-wrapper" class="relative w-full h-[400px] border border-gray-300 rounded-lg mb-8" style="overflow: hidden;">
+                      <div id="inner-scroll-area" style="width: 100%; height: 100%;">
+                          <div id="map-container" class="transform origin-top-left" style="display: grid;">
+                              </div>
+                      </div>
+
+                      <div id="magnifier-controls" class="absolute bottom-4 right-4 flex flex-col items-center z-50">
+                          <div id="zoom-slider-container" class="flex flex-col items-center bg-gray-700 p-2 rounded-lg shadow-lg mb-2 hidden">
+                              <span class="text-white text-xs mb-2">Zoom</span>
+                              <input type="range" id="zoom-slider" min="100" max="500" value="100"
+                                    class="bg-indigo-100 rounded-lg appearance-none cursor-pointer range-lg">
+                          </div>
+                          <button id="magnifier-btn" class="bg-indigo-600 p-3 rounded-full shadow-lg transition-opacity duration-300 opacity-30 hover:opacity-100">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-white">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+                <!-- End of Diseases Heat Map -->
+                </div>
+                <div class="mt-4">
+                  <h4>Suggestions</h4>
+                  <p class="text-muted">This is a subtitle</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="crop-health-monitoring mt-4">
+              <h5>Crop Health Monitoring</h5>
+              <p>Current status of crop:</p>
+              <p>The following was found:</p>
+
+              <ul class="nav nav-tabs" id="diseaseTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="disease1-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#disease1"
+                    type="button"
+                    role="tab"
+                    aria-controls="disease1"
+                    aria-selected="true"
+                  >
+                    Disease 1
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="disease2-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#disease2"
+                    type="button"
+                    role="tab"
+                    aria-controls="disease2"
+                    aria-selected="false"
+                  >
+                    Disease 2
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="disease3-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#disease3"
+                    type="button"
+                    role="tab"
+                    aria-controls="disease3"
+                    aria-selected="false"
+                  >
+                    Disease 3
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="disease4-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#disease4"
+                    type="button"
+                    role="tab"
+                    aria-controls="disease4"
+                    aria-selected="false"
+                  >
+                    Disease 4
+                  </button>
+                </li>
+              </ul>
+
+              <div class="tab-content mt-2" id="diseaseTabContent">
+                <div
+                  class="tab-pane fade show active"
+                  id="disease1"
+                  role="tabpanel"
+                  aria-labelledby="disease1-tab"
+                >
+                  <h4>Disease 1</h4>
+                  <div
+                    id="disease1-map"
+                    style="height: 200px; width: 100%; border: 1px solid #ccc"
+                  ></div>
+                  <p><strong>Disease Name:</strong> Early Blight</p>
+                  <p>
+                    <strong>Location:</strong> Lower leaves, spreading upwards.
+                  </p>
+                  <p>
+                    <strong>Spread Area:</strong> Increasing rapidly in humid
+                    conditions.
+                  </p>
+                  <p>
+                    <strong>Side Effects:</strong> Leaf spots, yellowing,
+                    defoliation.
+                  </p>
+                  <p>
+                    <strong>Suggestions / Treatment:</strong> Apply fungicide,
+                    improve air circulation.
+                  </p>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="disease2"
+                  role="tabpanel"
+                  aria-labelledby="disease2-tab"
+                >
+                  <h4>Disease 2</h4>
+                  <div
+                    id="disease2-map"
+                    style="height: 200px; width: 100%; border: 1px solid #ccc"
+                  ></div>
+                  <p><strong>Disease Name:</strong> Bacterial Spot</p>
+                  <p>
+                    <strong>Location:</strong> Small spots on leaves and fruits.
+                  </p>
+                  <p>
+                    <strong>Spread Area:</strong> Favored by warm, wet weather.
+                  </p>
+                  <p>
+                    <strong>Side Effects:</strong> Leaf lesions, fruit spots.
+                  </p>
+                  <p>
+                    <strong>Suggestions / Treatment:</strong> Copper-based
+                    fungicides, avoid overhead irrigation.
+                  </p>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="disease3"
+                  role="tabpanel"
+                  aria-labelledby="disease3-tab"
+                >
+                  <h4>Disease 3</h4>
+                  <div
+                    id="disease3-map"
+                    style="height: 200px; width: 100%; border: 1px solid #ccc"
+                  ></div>
+                  <p><strong>Disease Name:</strong> Late Blight</p>
+                  <p>
+                    <strong>Location:</strong> Water-soaked lesions on leaves
+                    and stems.
+                  </p>
+                  <p>
+                    <strong>Spread Area:</strong> Rapid in cool, wet conditions.
+                  </p>
+                  <p>
+                    <strong>Side Effects:</strong> Rapid plant death, fruit rot.
+                  </p>
+                  <p>
+                    <strong>Suggestions / Treatment:</strong> Apply fungicide
+                    immediately, remove infected plants.
+                  </p>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="disease4"
+                  role="tabpanel"
+                  aria-labelledby="disease4-tab"
+                >
+                  <h4>Disease 4</h4>
+                  <div
+                    id="disease4-map"
+                    style="height: 200px; width: 100%; border: 1px solid #ccc"
+                  ></div>
+                  <p><strong>Disease Name:</strong> Leaf Mold</p>
+                  <p>
+                    <strong>Location:</strong> Yellow spots on upper leaves,
+                    gray mold underneath.
+                  </p>
+                  <p>
+                    <strong>Spread Area:</strong> High humidity, poor air
+                    circulation.
+                  </p>
+                  <p>
+                    <strong>Side Effects:</strong> Leaf drop, reduced fruit set.
+                  </p>
+                  <p>
+                    <strong>Suggestions / Treatment:</strong> Improve air
+                    circulation, reduce humidity, fungicides.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <!-- End Farm section -->
+    <!-- start footer -->
+    <div class="footer pb-5 pt-5 text-white-50 text-center text-md-start">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="info mb-5">
+              <img
+                style="height: 70px"
+                src="./Assets/IMG/Home/logo.png"
+                alt=""
+              />
+              <p class="mb-5">
+                Innovative robotic and AI-powered solutions that address the
+                critical challenges facing modern agriculture.
+              </p>
+              <div class="copyright">
+                Created By <span>Graphberry</span>
+                <div>&copy; 2024 - <span>AGRI ROBO</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <div class="links">
+              <h5 class="text-light">Explore</h5>
+              <ul class="list-unstyled lh-lg">
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="Contact.html"
+                    >about</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="Services.html"
+                    >Our Services</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="profile.html"
+                    >Profile</a
+                  >
+                </li>
+                <li>
+                  <a class="text-white-50 text-decoration-none" href="Farm.html"
+                    >farm</a
+                  >
+                </li>
+                <li>
+                  <a class="text-white-50 text-decoration-none" href=""
+                    >Our Project</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="Contact.html"
+                    >contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6">
+            <div class="links">
+              <h5 class="text-light">About Us</h5>
+              <ul class="list-unstyled lh-lg">
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="login.html"
+                    >Sign in</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="login.html"
+                    >Register</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="Contact.html"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a class="text-white-50 text-decoration-none" href="">Blog</a>
+                </li>
+                <li>
+                  <a
+                    class="text-white-50 text-decoration-none"
+                    href="Contact.html"
+                    >Contact us</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="contact">
+              <h5 class="text-light mb-3">Contact Us</h5>
+              <p class="mb-5 fs-6 lh-lg fw-bold">
+                Get in touch with us via mail phone.We are waiting for your call
+                or message
+              </p>
+              <a class="Email btn rounded-pill w-100 main-btn" href=""
+                >AGIROBO@gmail.com</a
+              >
+              <ul class="social-media d-flex mt-5 list-unstyled gap-3">
+                <li>
+                  <a class="d-block text-light" href="">
+                    <i
+                      class="fa-brands fa-facebook facebook rounded-circle p-2"
+                    ></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="d-block text-light" href="">
+                    <i
+                      class="fa-brands fa-twitter twitter rounded-circle p-2"
+                    ></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="d-block text-light" href="">
+                    <i
+                      class="fa-brands fa-youtube youtube rounded-circle p-2"
+                    ></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="d-block text-light" href="">
+                    <i
+                      class="fa-brands fa-linkedin linkedin rounded-circle p-2"
+                    ></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end footer -->
+    <script src="./Assets/JS/data.js"></script>
+    <script src="./Assets/JS/farm/farm.js"></script>
+    <script src="./Assets/JS/farm.js"></script>
+    <script src="./Assets/JS/farm/heat.js"></script>
+    <script src="./Assets/JS/main.js"></script>
+    <script src="./Assets/JS/check.js"></script>
+  </body>
+</html>
