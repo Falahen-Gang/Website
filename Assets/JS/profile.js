@@ -19,24 +19,56 @@ fetch(api_profile, options_profile)
       li.className = 'farm-item';
 
       li.innerHTML = `
-        <div class="farm-map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3416.465970104768!2d30.949456!3d31.09677850000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f7ac7ba77647ed%3A0xcd75a051c77224b6!2sFaculty%20of%20Engineering%2C%20Kafrelsheikh%20University!5e0!3m2!1sen!2seg!4v1741398316302!5m2!1sen!2seg"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
+        <div id="map-${farm.id}" class="farm-map" style="width: 100%;"></div>
         <a class="nav-link p-2 p-lg-3" href="Farm.html">
-          <div class="farm-details" onclick="${localStorage.setItem('farmId',farm.id)}')">
+          <div class="farm-details" onclick="localStorage.setItem('farmId',${farm.id})">
             <p><strong>${farm.name}</strong></p>
             <p>Tomatoes</p>
           </div>
         </a>
       `;
+    li.style.width = "100%";
 
-      farmsList.appendChild(li);
+
+    var mapbox_url = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoiam9ubnltY2N1bGxhZ2giLCJhIjoiY2xsYzdveWh4MGhwcjN0cXV5Z3BwMXA1dCJ9.QoEHzPNq9DtTRrdtXfOdrw';
+    var mapbox_attribution = '© Mapbox © OpenStreetMap Contributors';
+    var esri_url ='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+    var esri_attribution = '© Esri © OpenStreetMap Contributors';
+
+    var lyr_satellite = L.tileLayer(esri_url, {id: 'MapID', maxZoom: 20, tileSize: 512, zoomOffset: -1, attribution: esri_attribution});
+    var lyr_streets   = L.tileLayer(mapbox_url, {id: 'mapbox/streets-v11', maxZoom: 28, tileSize: 512, zoomOffset: -1, attribution: mapbox_attribution});
+
+    var baseMaps = {
+        "Streets": lyr_streets,
+        "Satellite": lyr_satellite
+    };
+
+    farmsList.appendChild(li);
+    console.log(farm.x, farm.y)
+    if (!farm.x || !farm.y) {
+      farm.x = 1
+      farm.y = 1
+    }
+    const map = L.map(
+      `map-${farm.id}`,
+      {
+        dragging: false,
+        zoomControl: false,
+        scrollWheelZoom: false,
+        doubleClickZoom: false,
+        boxZoom: false,
+        touchZoom: false,
+        keyboard: false,
+        layers: [lyr_satellite, lyr_streets]
+      }
+    ).setView([parseFloat(farm.x), parseFloat(farm.y)], 17);
+
+    L.marker().setLatLng([farm.x, farm.y]).addTo(map).bindPopup(`<b>${farm.location}</b>`).openPopup();;
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+  L.control.layers(baseMaps).addTo(map);
 
 
 tasksTableBody.innerHTML = '';
