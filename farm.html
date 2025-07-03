@@ -59,7 +59,7 @@
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a
-                class="nav-link p-2 p-lg-3 active"
+                class="nav-link p-2 p-lg-3"
                 aria-current="page"
                 href="Home.html"
                 data-key="Home"
@@ -82,7 +82,7 @@
               >
             </li>
             <li class="nav-item">
-              <a   class="nav-link p-2 p-lg-3 login" href="farm.html" data-key='Farm'>Farm</a>
+              <a   class="nav-link p-2 p-lg-3 login active" href="farm.html" data-key='Farm'>Farm</a>
             </li>
             <li class="nav-item">
               <a class="nav-link p-2 p-lg-3 logout" data-key="login" href="login.html">login</a>
@@ -93,19 +93,18 @@
             <li class="nav-item dropdown">
               <a
                 class="nav-link nav-link p-2 p-lg-3 dropdown-toggle"
-                onclick="setlanguage('en')"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                data-key="lang"
               >
                 En
               </a>
               <ul class="nav-item dropdown-menu">
-                <li><a class="dropdown-item" onclick="setlanguage('ar')" >Ar</a></li>
-                <!-- <li><a class="dropdown-item" href="#">En</a></li> -->
+                <li><a class="dropdown-item" onclick="setlanguage('ar')" data-key="Arabic">Arabic</a></li>
+                <li><a class="dropdown-item" onclick="setlanguage('en')" data-key="English">English</a></li>
               </ul>
-            </li>
-            <!-- <li class="nav-item">
+            </li>            <!-- <li class="nav-item">
               <a
                 class="nav-link p-2 p-lg-3"
                 style="cursor: pointer; background-color: red"
@@ -161,7 +160,6 @@
       <th></th>
         <th data-key="Service Type">Service Type</th>
         <th data-key="Title">Title</th>
-        <th data-key="Date">Date</th>
         <th data-key="Status">Status</th>
     </tr>
   </thead>
@@ -179,7 +177,7 @@
         <button id="toggle-tasks-visibility-btn" title="Toggle Task List">&lt;</button>
 
         <div id="task-details-view">
-            <div class="details-placeholder">Select a completed task to view its details.</div>
+            <div class="details-placeholder" data-key="Select a completed task to view its details">Select a completed task to view its details.</div>
         </div>
     </div>
 
@@ -362,7 +360,10 @@
         </div>
       </div>
     </div>
+  </body>
+  <script src="./Assets/JS/farm.js"></script>
+  <script src="./Assets/JS/data.js"></script>
+  <script src="./Assets/JS/check.js"></script>
+  <script src="./Assets/JS/main.js"></script>
+</html>
     <!-- end footer -->
-    <script src="./Assets/JS/data.js"></script>
-    <script src="./Assets/JS/check.js"></script>
-    <script src="./Assets/JS/farm.js"></script>

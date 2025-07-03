@@ -23,6 +23,18 @@
 
 .bar {
     fill: steelblue;
+    border-top-right-radius: 50%;
+    direction: ltr !important;
+}
+
+
+.text{
+    z-index: 100;
+}
+
+.bar:hover {
+    fill: rgb(48, 92, 128);
+    border-top-right-radius: 50%;
 }
 
 .line {
@@ -83,9 +95,12 @@
     filter: blur(50px); /* Blur for the heatmap effect */
     transform: translate(-50%, -25%); /* Center the circle on the x,y coordinates */
     pointer-events: none; /* Allow clicks to pass through to elements below */
-    z-index: 100; /* Ensure it's above other content */
+    z-index: 99; /* Ensure it's above other content */
 }
 
+#map-container {
+    overflow: hidden;
+}
 /* Ensure images within grid cells are positioned correctly */
 .grid-cell {
     position: relative; /* Needed for absolute positioning of weed images and circles */
@@ -96,6 +111,130 @@
     background-size: cover;
     background-position: center;
     margin: -0.5px; /* Add negative margin to prevent gaps on zoom */
+    /* top: -94%;
+    left: -94%; */
+}
+.up-grass-grid-cell {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../IMG/Weeds/grass.png);
+    background-size: 60px;
+    background-position: center;
+    background-repeat: repeat-x;
+    margin: -0.5px;
+    top: -30%;
+    background-position-y: bottom;
+    transform: rotate(180deg) scaleX(1) scaleY(0.4);
+    z-index: 5;
+}
+
+.left-grass{
+    position: absolute;
+    background-image: url(../../IMG/Weeds/grass.png);
+    background-size: 60px;
+    background-position: center;
+    background-repeat: repeat-x;
+    background-position-x: right;
+    transform: rotate(90deg) scaleX(1) scaleY(0.4);
+    z-index: 101;
+    left: calc(-43% - 13px);
+    height: 100%;
+    width: 100%;
+}
+
+.right-grass{
+    position: absolute;
+    background-image: url(../../IMG/Weeds/grass.png);
+    background-size: 60px;
+    background-position: center;
+    background-repeat: repeat-x;
+    background-position-x: right;
+    transform: rotate(-90deg) scaleX(1) scaleY(0.4);
+    z-index: 101;
+    right: calc(-43% - 13px);
+    height: 100%;
+    width: 100%;
+}
+
+.top-grass{
+    position: absolute;
+    background-image: url(../../IMG/Weeds/grass.png);
+    background-size: 60px;
+    background-position: center;
+    background-repeat: repeat-x;
+    background-position-x: right;
+    transform: rotate(180deg) scaleX(1) scaleY(0.4);
+    z-index: 101;
+    top: calc(-43% - 13px);
+    height: 100%;
+    width: 100%;
+}
+
+.bottom-grass{
+    position: absolute;
+    background-image: url(../../IMG/Weeds/grass.png);
+    background-size: 60px;
+    background-position: center;
+    background-repeat: repeat-x;
+    background-position-x: right;
+    transform: scaleX(1) scaleY(0.4);
+    z-index: 101;
+    bottom: calc(-43% - 13px);
+    height: 100%;
+    width: 100%;
+}
+
+.left-grass-grid-cell {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../IMG/Weeds/grass.png);
+    background-size: 60px;
+    background-position: center;
+    background-repeat: repeat-x;
+    margin: -0.5px;
+    top: 5px;
+    background-position-x: right;
+    transform: rotate(90deg) scaleX(1) scaleY(0.4);
+    z-index: 5;
+    top: -94%;
+    left: -42%;
+}
+.right-grass-grid-cell {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../IMG/Weeds/grass.png);
+    background-size: 60px;
+    background-position: center;
+    background-repeat: repeat-x;
+    margin: -0.5px;
+    top: 5px;
+    background-position-x: left;
+    transform: rotate(-90deg) scaleX(1) scaleY(0.4);
+    z-index: 5;
+    top: -94%;
+    left: -142%;
+}
+.down-grass-grid-cell {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../IMG/Weeds/grass.png);
+    background-size: 60px;
+    background-position: center;
+    background-repeat: repeat-x;
+    margin: -0.5px;
+    top: 5px;
+    background-position-y: top;
+    transform: rotate(0deg) scaleX(1) scaleY(0.4);
+    z-index: 5;
+    top: -135%;
 }
 
 /* Styles for the weed image */
@@ -155,6 +294,7 @@
     /* Hide scrollbar visuals for WebKit browsers */
     -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
+
 
 #inner-scroll-area.dragging {
     cursor: grabbing; /* Cursor when dragging */

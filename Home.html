@@ -59,9 +59,9 @@
               >Profile</a
               >
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a   class="nav-link p-2 p-lg-3 login" href="farm.html" data-key='Farm'>Farm</a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link p-2 p-lg-3 logout" data-key="login" href="login.html">login</a>
             </li>
@@ -71,19 +71,18 @@
             <li class="nav-item dropdown">
               <a
                 class="nav-link nav-link p-2 p-lg-3 dropdown-toggle"
-                onclick="setlanguage('en')"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                data-key="lang"
               >
                 En
               </a>
               <ul class="nav-item dropdown-menu">
-                <li><a class="dropdown-item" onclick="setlanguage('ar')" >Ar</a></li>
-                <!-- <li><a class="dropdown-item" href="#">En</a></li> -->
+                <li><a class="dropdown-item" onclick="setlanguage('ar')" data-key="Arabic">Arabic</a></li>
+                <li><a class="dropdown-item" onclick="setlanguage('en')" data-key="English">English</a></li>
               </ul>
-            </li>
-            <!-- <li class="nav-item">
+            </li>            <!-- <li class="nav-item">
               <a
                 class="nav-link p-2 p-lg-3"
                 style="cursor: pointer; background-color: red"

@@ -144,11 +144,11 @@
       'Benefits':'Benefits',
       'Early disease detection, reduced manual inspection, optimized use of agrochemicals, improved yield quality, and sustainable farming practices. AI enhances decision-making by providing actionable insights based on real-time data':'Early disease detection, reduced manual inspection, optimized use of agrochemicals, improved yield quality, and sustainable farming practices. AI enhances decision-making by providing actionable insights based on real-time data',
       'Tomatoes':'Tomatoes',
-      '':'',
-      '':'',
-      '':'',
-      '':'',
-      '':'',
+      'lang':'En',
+      'Count':'Count',
+      'Type':'Type',
+      'Status':'Status',
+      'Description':'Description',
       '':'',
       '':'',
       '':'',
@@ -282,8 +282,8 @@
       'date' : 'التاريخ',
       'farm' : 'المزرعة',
       'Notes' : 'ملاحظات',
-      'English' : 'انجليزى',
-      'Arabic' : 'عربى',
+      'English' : 'الانجليزية',
+      'Arabic' : 'العربية',
       
       "Soil analysis and nutrient mapping": "تحليل التربة ورسم خرائط المغذيات",
       "Soil health plays a critical role in crop productivity and sustainable agriculture. Accurate soil analysis and nutrient mapping empower farmers to make informed decisions that maximize yield while minimizing environmental impact": "تلعب صحة التربة دورًا حاسمًا في إنتاجية المحاصيل والزراعة المستدامة. يتيح تحليل التربة الدقيق ورسم خرائط المغذيات للمزارعين اتخاذ قرارات مستنيرة تزيد من الإنتاجية وتقلل من التأثير البيئي",
@@ -297,7 +297,14 @@
       "This advanced method not only improves detection speed and accuracy but also minimizes the use of pesticides and reduces crop loss. The system can be integrated with smartphones or drones for wider coverage and monitoring": "لا تعمل هذه الطريقة المتقدمة على تحسين سرعة ودقة الاكتشاف فحسب، بل تقلل أيضًا من استخدام المبيدات وتقليل خسائر المحاصيل. يمكن دمج النظام مع الهواتف الذكية أو الطائرات بدون طيار لتغطية أوسع ومراقبة أفضل",
       "Benefits": "الفوائد",
       "Early disease detection, reduced manual inspection, optimized use of agrochemicals, improved yield quality, and sustainable farming practices. AI enhances decision-making by providing actionable insights based on real-time data": "اكتشاف مبكر للأمراض، تقليل الفحص اليدوي، استخدام أمثل للمواد الكيميائية الزراعية، تحسين جودة الإنتاج، وممارسات زراعية مستدامة. يعزز الذكاء الاصطناعي اتخاذ القرار من خلال تقديم رؤى قابلة للتنفيذ بناءً على البيانات في الوقت الفعلي",
-      "Tomatoes": "الطماطم"
+      "Tomatoes": "الطماطم",
+      "lang": "  العربية  ",
+      "Select a completed task to view its details" : "اختر مهمة منتهية لاظهار بياناتها ",
+      'Count':'العدد:',
+      'Type':'النوع:',
+      'Status':'الحالة:',
+      'Description':'الوصف الكامل:',
+
 
 
     }

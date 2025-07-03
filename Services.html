@@ -59,28 +59,40 @@
               >Profile</a
               >
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a   class="nav-link p-2 p-lg-3 login" href="farm.html" data-key='Farm'>Farm</a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link p-2 p-lg-3 logout" data-key="login" href="login.html">login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link p-2 p-lg-3 login" href="logout.html" data-key="logout">logout</a>
             </li>
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item">
               <a
-                class="nav-link nav-link p-2 p-lg-3 dropdown-toggle"
-                onclick="setlanguage('en')"
+                class="nav-link nav-link p-2 p-lg-3"
+                onclick="setlanguage('ar')"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                data-key="lang"
+              >
+                عربي
+              </a>
+            </li> -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link nav-link p-2 p-lg-3 dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                data-key="lang"
               >
                 En
               </a>
               <ul class="nav-item dropdown-menu">
-                <li><a class="dropdown-item" onclick="setlanguage('ar')" >Ar</a></li>
-                <!-- <li><a class="dropdown-item" href="#">En</a></li> -->
+                <li><a class="dropdown-item" onclick="setlanguage('ar')" data-key="Arabic">Arabic</a></li>
+                <li><a class="dropdown-item" onclick="setlanguage('en')" data-key="English">English</a></li>
               </ul>
             </li>
             <!-- <li class="nav-item">
@@ -108,17 +120,20 @@
     <div class="landing-section mb-3">
       <div
         class="d-flex flex-column mb-3 container text-center h-100 justify-content-center align-items-center"
+        style="color: rgb(0, 157, 47) !important;"
       >
         <p>
           <a class="fw-bold text-decoration-none text-dark" href="Home.html"
+              style="color: rgb(0, 157, 47) !important;"
               data-key="Home">Home</a
           >
           /
           <a data-key="Services" class="fw-bold text-decoration-none text-dark" href="Services.html"
+              style="color: rgb(0, 157, 47) !important;"
             >Services</a
           >
         </p>
-        <h1 data-key="Services">Services</h1>
+        <h1 data-key="Services" style="color: rgb(224, 255, 225);">Services</h1>
       </div>
     </div>
     <!-- end landing section -->

@@ -41,12 +41,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateToggleButton() {
         const isMobile = window.innerWidth <= 768;
+        const language = localStorage.getItem('language');
         if (isTasksListVisible) {
             toggleTasksBtn.innerHTML = isMobile ? 'Hide Tasks' : '&laquo;';
             toggleTasksBtn.title = "Hide Task List";
+
+            if((language==='ar') && (!isMobile))
+            {
+                toggleTasksBtn.style.removeProperty("left")
+                toggleTasksBtn.style.transition = "background-color 0.4s ease, right 0.4s ease, transform 0.4s ease"
+                toggleTasksBtn.style.right = "calc(50% - 60px)"
+            }
+            else
+            {
+                toggleTasksBtn.style.removeProperty("right")
+                toggleTasksBtn.style.transition = "background-color 0.4s ease, left 0.4s ease, transform 0.4s ease"
+                toggleTasksBtn.style.left = "calc(50% + 20px)"
+            }
         } else {
             toggleTasksBtn.innerHTML = isMobile ? 'Show Tasks' : '&raquo;';
             toggleTasksBtn.title = "Show Task List";
+
+            if((language==='ar') && (!isMobile))
+            {
+                toggleTasksBtn.style.transition = "background-color 0.4s ease, right 0.4s ease, transform 0.4s ease"
+                toggleTasksBtn.style.right = "-30px"
+            }
+            else
+            {
+                toggleTasksBtn.style.transition = "background-color 0.4s ease, left 0.4s ease, transform 0.4s ease"
+                toggleTasksBtn.style.left = "-30px"
+            }
         }
     }
     
@@ -71,11 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="details-content">
                 <h3>${task.title}</h3>
                 <img src="Assets/IMG/profile/image-03.webp.png" alt="${task.title}" onerror="this.onerror=null; this.src='https://placehold.co/100x100/cccccc/333333?text=No+Img';">
-                <p></p>
-                <p><strong>Type:</strong> ${task.type}</p>
-                <p><strong>Status:</strong> <span style="color:${task.status === 'Complete' ? 'green' : (task.status === 'In Progress' ? 'orange' : 'red')}">${task.status}</span></p>
-                <p><strong>Full Description:</strong> ${task.description || 'Not available.'}</p>
-                <p><strong>Assigned Personnel:</strong> ${task.assigned || 'Not specified.'}</p>
+                <p style='display: flex;'></p>
+                <p style='display: flex;'><strong data-key="Type">Type:</strong><span>${task.type}</span></p>
+                <p style='display: flex;'><strong data-key="Status">Status:</strong> <span style="color:${task.status === 'Complete' ? 'green' : (task.status === 'In Progress' ? 'orange' : 'red')}">${task.status}</span></p>
+                <p style='display: flex;'><strong data-key="Description">Full Description:</strong> <span>${task.description || ' '}</span></p>
             </div>
         `;
     }
@@ -167,12 +191,12 @@ document.addEventListener('DOMContentLoaded', () => {
         taskDetailsView.querySelector(".details-content").innerHTML += `
     <div class="chart-container">
         <h2 class="text-2xl font-semibold text-gray-700">AVG. NPK Per Distance</h2>
-        <svg id="multiLineChartSVG" width="100%" height="400" viewBox="0 0 800 400"></svg>
+        <svg id="multiLineChartSVG" width="70%" height="600px" viewBox="0 0 800 400"></svg>
     </div>
 
     <div class="chart-container">
         <h2 class="text-2xl font-semibold text-gray-700">Avg. NPK Per Line</h2>
-        <svg id="rowChartSVG" width="100%" height="400" viewBox="0 0 800 400"></svg>
+        <svg id="rowChartSVG" width="70%" height="600px" viewBox="0 0 800 400"></svg>
     </div>
         `
 
@@ -581,8 +605,8 @@ document.addEventListener('DOMContentLoaded', () => {
      * Clears any existing grid cells and populates the cell list dropdown.
      */
     function generateHeatmap(data, weed){
-        const numRows = Math.ceil(parseFloat(data[0].task.farms.line_length) / 0.66)
-        const numCols    = Math.ceil(parseFloat(data[0].task.farms.number_of_lines))
+        const numCols = Math.ceil(parseFloat(data[0].task.farms.line_length) / 31)
+        const numRows    = Math.ceil(parseFloat(data[0].task.farms.number_of_lines))
 
         console.log(numCols, numRows)
 
@@ -590,15 +614,15 @@ document.addEventListener('DOMContentLoaded', () => {
         taskDetailsView.querySelector(".details-content").innerHTML += `
         <div class="chart-container">
                 <h2 class="text-2xl font-semibold text-gray-700">Count of Found ${weed? "Weeds" : "Diseases"}</h2>
-            <svg id="barChartSVG" width="100%" height="400" viewBox="0 0 800 400"></svg>
+            <svg id="barChartSVG" width="60%" height="635px" viewBox="0 0 800 400"></svg>
         </div>
         `
         taskDetailsView.innerHTML += `
         <div class="mt-4">
         <div id="zoom-scroll-wrapper" class="relative w-full h-[400px] border border-gray-300 rounded-lg mb-8" style="overflow: hidden;">
-            <div id="inner-scroll-area" style="width: 100%; height: 100%;">
+            <div id="inner-scroll-area" style="width: 100%; height: 100%; direction: ltr;">
                 <div id="map-container" class="transform origin-top-left" style="display: grid;">
-                    </div>
+                </div>
             </div>
 
             <div id="magnifier-controls" class="absolute bottom-4 right-4 flex flex-col items-center z-50">
@@ -647,7 +671,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * Adds a weed image and a circle effect to the selected grid cell.
  */
-function addWeed(weedName, x, y, cellId) {
+function addWeed(weedName, x, y, cellId, cellImage) {
     const selectedWeedName = weedName;
     const xLocation = x;   // 0-100 percentage
     const yLocation = y;   // 0-100 percentage
@@ -664,6 +688,13 @@ function addWeed(weedName, x, y, cellId) {
     if (!cellWeeds[selectedCellId]) {
         cellWeeds[selectedCellId] = [];
     }
+    cellWeeds[selectedCellId+"image"] = cellImage;
+    cellWeeds[selectedCellId].push({
+        name: selectedWeedName,
+        x: xLocation,
+        y: yLocation
+    });
+
     cellWeeds[selectedCellId].push({
         name: selectedWeedName,
         x: xLocation,
@@ -705,21 +736,28 @@ function addWeed(weedName, x, y, cellId) {
      * Calculates and applies the initial zoom level to ensure all columns are shown.
      */
     function setInitialZoom() {
-        const mapContainerUnscaledWidth = numCols * cellBaseSizePx;
+        const mapContainerUnscaledWidth  = numCols * cellBaseSizePx;
+        const mapContainerUnscaledHeight = numRows * cellBaseSizePx;
         const wrapperVisibleWidth = zoomScrollWrapper.clientWidth;
-
+        const wrapperVisibleHeight = 235.5;
         // Calculate the minimum zoom percentage required to show all columns
-        let minFitZoom = (wrapperVisibleWidth / mapContainerUnscaledWidth) * 100;
+        let minFitZoom = mapContainerUnscaledWidth < mapContainerUnscaledHeight ? (wrapperVisibleWidth / mapContainerUnscaledWidth) * 100 : (wrapperVisibleHeight / mapContainerUnscaledHeight) * 100;
 
+        console.log(mapContainerUnscaledWidth,
+mapContainerUnscaledHeight,
+wrapperVisibleWidth,
+wrapperVisibleHeight,
+minFitZoom)
         // Ensure minFitZoom is not less than 100% if the grid is smaller than the wrapper
         // The lowest zoom we want is 100% (natural size) or the zoom needed to fit all columns.
         minFitZoom = Math.max(100, minFitZoom);
 
         // Set the slider's minimum value to the calculated minFitZoom
-        zoomSlider.min = Math.ceil(minFitZoom); // Round up to ensure all columns are visible
+        zoomSlider.min = Math.ceil(minFitZoom)//Math.ceil(minFitZoom); // Round up to ensure all columns are visible
+        zoomSlider.max = 1.5 * Math.ceil(minFitZoom)
 
         // Set the slider's current value to its new minimum, so it starts at the "fit all columns" view
-        zoomSlider.value = zoomSlider.min;
+        zoomSlider.value = Math.ceil(minFitZoom);
 
         applyZoom(); // Apply the zoom to the map container
     }
@@ -739,6 +777,8 @@ function addWeed(weedName, x, y, cellId) {
         // Optionally, you might still use transform if needed:
         mapContainer.style.transform = `scale(${scaleFactor})`;
         // If using both, be mindful that transform may stack on top of the resized dimensions.
+        console.log(zoomSlider.value)
+        console.log(scaleFactor)
     }
 
     /**
@@ -746,17 +786,21 @@ function addWeed(weedName, x, y, cellId) {
      * @param {MouseEvent} event - The mouse event.
      */
     function handleCellMouseOver(event) {
-        const cellId = event.currentTarget.id.replace('cell-', ''); // Get "row-col"
-        const weedsInCell = cellWeeds[cellId];
+        const cellId            = event.currentTarget.id.replace('cell-', ''); // Get "row-col"
+        const weedsInCell       = cellWeeds[cellId];
+        const cellImage         = cellWeeds[cellId+"image"];
+        const weedTypesCounts   = {};
 
         if (weedsInCell && weedsInCell.length > 0) {
+            weedsInCell.forEach(weed => {weedTypesCounts[weed.name] = weedTypesCounts[weed.name] ? weedTypesCounts[weed.name] + 1 : 1})
             let tooltipContent = `<div class="font-bold mb-2"> Line ${(parseInt(event.currentTarget.dataset.row) + 1)}, Distance ~${Math.round((parseInt(event.currentTarget.dataset.col) + 1) * 0.66)}m</div>`;
             tooltipContent += `
                 <div class="tooltip-weed-item">
-                    <img src="${data[0].img}" alt="${weedsInCell[0].name}" class="tooltip-weed-image">
-                    <span>${weedsInCell[0].name.replace(/_/g, ' ')}</span>
+                    <img src="${cellImage}" alt="${weedsInCell[0].name}" class="tooltip-weed-image">
                 </div>
             `;
+            tooltipContent += Object.keys(weedTypesCounts).map(key => `<span style="margin-right: 5px;">${key.replace(/_/g, ' ')}: ${weedTypesCounts[key]/2}</span>`)
+
         
             // weedsInCell.forEach((weed, index) => {
             //     tooltipContent += `
@@ -873,9 +917,28 @@ function addWeed(weedName, x, y, cellId) {
         mapContainer.style.gridTemplateColumns = `repeat(${numCols}, 1fr)`;
         mapContainer.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
 
+
+        // let r = 0;
+        // for (let c = 0; c < numCols; c++) {
+        //     const cell = document.createElement('div');
+        //     cell.classList.add('up-grass-grid-cell');
+        //     cell.dataset.row = r;
+        //     cell.dataset.col = c;
+        //     cell.id = `cell-${r}-${c}`; // Assign a unique ID for easy targeting
+        //     mapContainer.appendChild(cell);
+        // }
+
+
         // Create grid cells
-        for (let r = 0; r < numRows; r++) {
-            for (let c = 0; c < numCols; c++) {
+        for (let r = 1; r <= numRows; r++) {
+            // let c = 0;
+            // let cell = document.createElement('div');
+            // cell.classList.add('left-grass-grid-cell');
+            // cell.dataset.row = r;
+            // cell.dataset.col = c;
+            // cell.id = `cell-${r}-${c}`; // Assign a unique ID for easy targeting
+            // mapContainer.appendChild(cell);
+            for (let c = 1; c <= numCols; c++) {
                 const cell = document.createElement('div');
                 cell.classList.add('grid-cell');
                 cell.dataset.row = r;
@@ -888,8 +951,50 @@ function addWeed(weedName, x, y, cellId) {
                 cell.addEventListener('mouseout', handleCellMouseOut);
                 // Add mousemove to update tooltip position
                 cell.addEventListener('mousemove', handleCellMouseMove);
+                if(c===1)
+                {
+                    const grass = document.createElement('div');
+                    grass.classList.add('left-grass');
+                    cell.appendChild(grass);
+                }
+                if(c===numCols)
+                {
+                    const grass = document.createElement('div');
+                    grass.classList.add('right-grass');
+                    cell.appendChild(grass);
+                }
+                if(r===1)
+                {
+                    const grass = document.createElement('div');
+                    grass.classList.add('top-grass');
+                    cell.appendChild(grass);
+                }
+                if(r===numRows)
+                {
+                    const grass = document.createElement('div');
+                    grass.classList.add('bottom-grass');
+                    cell.appendChild(grass);
+                }
             }
+            // c = numCols - 1;
+            // cell = document.createElement('div');
+            // cell.classList.add('right-grass-grid-cell');
+            // cell.dataset.row = r;
+            // cell.dataset.col = c;
+            // cell.id = `cell-${r}-${c}`; // Assign a unique ID for easy targeting
+            // mapContainer.appendChild(cell);
         }
+
+        // r = numRows - 1;
+        // for (let c = 0; c <numCols; c++) {
+        //     const cell = document.createElement('div');
+        //     cell.classList.add('down-grass-grid-cell');
+        //     cell.dataset.row = r;
+        //     cell.dataset.col = c;
+        //     cell.id = `cell-${r}-${c}`; // Assign a unique ID for easy targeting
+        //     mapContainer.appendChild(cell);
+        // }
+
         // Weeds/Diseases Counter
         let counter = 0
         let name    = '';
@@ -901,10 +1006,10 @@ function addWeed(weedName, x, y, cellId) {
                 counter++;
                 name = weed.type.toUpperCase().replace(/_/g, ' ')
                 found_list[name] = found_list[name] ? found_list[name] + 1 : 1;
-                addWeed(weed.type, 27, 27, `${Math.ceil(parseFloat(weed.row))}-${Math.ceil(parseFloat(weed.distance) / 0.66)}`)
+                addWeed(weed.type, 100 - Math.ceil((weed.y/480)*100), Math.ceil((weed.x/640)*90), `${Math.ceil(parseFloat(weed.row))}-${Math.ceil(parseFloat(weed.distance) / 31)}`, weed.img)
             }
         })
-        taskDetailsView.querySelector('p').innerHTML = `<strong>Count:</strong> ${counter}`
+        taskDetailsView.querySelector('p').innerHTML = `<strong data-key="Count">Count:</strong><span>${counter}</span>`
         const weeds = true;
 
 
@@ -939,7 +1044,7 @@ function addWeed(weedName, x, y, cellId) {
 
             // Y scale (Linear Scale for numerical data)
             const yScale = d3.scaleLinear()
-                .domain([0, d3.max(barData, d => d.count) * 2]) // 10% buffer for max value
+                .domain([0, d3.max(barData, d => d.count) + 5]) // 10% buffer for max value
                 .range([height, 0]);
 
             // Add X axis
@@ -948,7 +1053,10 @@ function addWeed(weedName, x, y, cellId) {
                 .call(d3.axisBottom(xScale))
                 .selectAll("text")
                 .attr("transform", "translate(-10,0)rotate(-45)")
-                .style("text-anchor", "end");
+                .style('font-size', '20px')
+                .style("text-anchor", "end")
+                .style("direction", "ltr")
+                .style("word-break", "break-word");
 
             // Add Y axis
             g.append("g")
@@ -957,11 +1065,11 @@ function addWeed(weedName, x, y, cellId) {
             // Add Y axis label
             g.append("text")
                 .attr("transform", "rotate(-90)")
-                .attr("y", -margin.left + 15)
+                .attr("y", -margin.left)
                 .attr("x", -height / 2)
                 .attr("dy", "1em")
                 .style("text-anchor", "middle")
-                .style("font-size", "14px")
+                .style("font-size", "25px")
                 .style("fill", "#555")
                 .text("Count");
 
@@ -1074,21 +1182,21 @@ fetch(api_farm, options_profile)
 
         // Add Farm Details
         farmDetails.innerHTML = `
-          <h3 data-key="FarmName">Farm Name ${farm.name}</h3>
-          <p>Location <span id="farm-location">${farm.location}</span></p>
-          <p>Size <span id="farm-size">${farm.area}</span></p>
-          <p>Crops <span id="farm-crops">Tomato</span></p>
+          <h3 style="display: flex;"><span style="margin:0px 5px;" data-key="Farm Name"> Farm Name</span><span>${farm.name}</span></h3>
+          <p  style="display: flex;"><span style="margin:0px 5px;" data-key="Location"> Location </span><span id="farm-location">${farm.location}</span></p>
+          <p  style="display: flex;"><span style="margin:0px 5px;" data-key="Area"> Area     </span><span id="farm-location">${farm.area}</span></p>
+          <p  style="display: flex;"><span style="margin:0px 5px;" data-key="Crop"> Crops    </span><span id="farm-location">Tomato</span></p>
         `
 
     if (farm && farm.tasks && farm.tasks.length > 0) {
         farm.tasks.forEach(task => {
+            console.log(task)
             const tr = document.createElement('tr');
             tr.className = 'task-item';
             tr.innerHTML = `
                 <td><img src="Assets/IMG/profile/image-03.webp.png" alt="${task.title} image" onerror="this.onerror=null; this.src='https://placehold.co/40x40/cccccc/333333?text=X';"></td>
                 <td>${task.type}</td>
                 <td>${task.title}</td>
-                <td></td>
                 <td>${task.status}</td>
             `;
             tr.addEventListener('click', () => getTask(task));
@@ -1135,5 +1243,15 @@ fetch(api_farm, options_profile)
         }
         updateToggleButton();
     });
+
+
+    window.onscroll = function () {
+    if (window.scrollY >= 600) {
+        toggleTasksBtn.style.position = 'sticky';
+        // up.style.right = "5px";
+    } else {
+    }
+    };
+
 
 });
