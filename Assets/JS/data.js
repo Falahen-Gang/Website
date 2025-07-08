@@ -26,7 +26,7 @@
       'Send' : 'Send',
       'Meet our team' : 'Meet our team',
       'Our team comprises engineers, developers, and data scientists dedicated to pushing the boundaries of agricultural technology. We are committed to continuous innovation and customer satisfaction' : 'Our team comprises engineers, developers, and data scientists dedicated to pushing the boundaries of agricultural technology. We are committedto continuous innovation and customer satisfaction',
-      'Mahmoud Elsanour' : 'Mahmoud Elsanour',
+      'Mahmoud Elsanour' : 'Mahmoud El-Sanour',
       'Mohamed Ayman' : 'Mohamed Ayman',
       'Ziyad Sameh' : 'Ziyad Sameh',
       'Mary Ashraf' : 'Mary Ashraf',
@@ -126,7 +126,10 @@
       'Notes' : 'Notes',
       'English' : 'English',
       'Arabic' : 'Arabic',
-      'This is a brief description of the product, highlighting key features or benefits' : 'This is a brief description of the product, highlighting key features or benefits',
+      'Weeds description' : 'Remove Weeds which compete with plants for essential resources.',
+      'Npk description' : 'Real-time soil data collection for optimized fertilizer usage.',
+      'Disease description' : 'Monitor crop health for ensuring optimal growth.',
+
       'Farmers face a wide range of challenges that can impact their yields and profitability. Here are some of the key issues they grapple with':'Farmers face a wide range of challenges that can impact their yields and profitability. Here are some of the key issues they grapple with',
       'Sustainable weed removal':'Sustainable weed removal',
       
@@ -173,7 +176,9 @@
       'Home' : 'الرئيسية',
       'Contact' : 'اتصل بنا',
       'About' : 'من نحن',
-      'This is a brief description of the product, highlighting key features or benefits' : 'هذا وصف موجز للمنتج، يسلط الضوء على الميزات أو الفوائد الرئيسية',
+      'Weeds description' : 'ازالة الأعشاب الضارة اللتي تتنافس مع النباتات على الموارد الأساسية.',
+      'Npk description' : 'جمع بيانات التربة في الوقت الفعلي لاستخدام الأسمدة بشكل أمثل.',
+      'Disease description' : 'مراقبة صحة المحاصيل لضمان النمو الأمثل.',
 
       'Sustainable weed removal' : 'إزالة الأعشاب الضارة المستدامة',
       'We build smart robots that detect tomato plant diseases in real-time, helping farmers improve crop health and yield' : 'نصمم روبوتات ذكية تكتشف أمراض نبات الطماطم في الوقت الفعلي، لمساعدة المزارعين على تحسين صحة المحصول والإنتاجية',
@@ -212,8 +217,8 @@
       'Add to cart' : ' إضافة الي العربة',
 
       'WELCOME TO AGRIROBOT' : 'مرحبًا بكم في AGRIROBOT',
-      'Smart' : 'ذكية',
-      'Farming solutions' : 'حلول زراعية',
+      'Smart' : 'حلول زراعية',
+      'Farming solutions' : 'ذكية',
       'powered by AI' : 'مدعومة بالذكاء الاصطناعي',
       'Show Now' : 'عرض الآن',
       'For sustainable agricultural future' : 'من أجل مستقبل زراعي مستدام',

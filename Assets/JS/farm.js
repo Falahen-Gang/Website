@@ -793,7 +793,7 @@ minFitZoom)
 
         if (weedsInCell && weedsInCell.length > 0) {
             weedsInCell.forEach(weed => {weedTypesCounts[weed.name] = weedTypesCounts[weed.name] ? weedTypesCounts[weed.name] + 1 : 1})
-            let tooltipContent = `<div class="font-bold mb-2"> Line ${(parseInt(event.currentTarget.dataset.row) + 1)}, Distance ~${Math.round((parseInt(event.currentTarget.dataset.col) + 1) * 0.66)}m</div>`;
+            let tooltipContent = `<div class="font-bold mb-2"> Line ${(parseInt(event.currentTarget.dataset.row) + 1)}, Distance ${Math.round((parseInt(event.currentTarget.dataset.col) - 1) * 31)}~${Math.round((parseInt(event.currentTarget.dataset.col)) * 31)}cm</div>`;
             tooltipContent += `
                 <div class="tooltip-weed-item">
                     <img src="${cellImage}" alt="${weedsInCell[0].name}" class="tooltip-weed-image">
